@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>mnml.css</title>
+    <meta property="og:title" content="mnml.css" />
+    <meta
+      property="og:description"
+      name="description"
+      content="A minimal, configurable CSS design system"
+    />
+    <meta property="og:image" content="https://mnmlcss.org/assets/share-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/assets/mnml-plus-opencolor.css" />
+    <link rel="stylesheet" href="/assets/docs.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+  </head>
+  <body>
+    <a href="#main" class="reader-only skip-link">Skip to main content</a>
+    <header class="container grid sticky">
+      <a href="/" class="site-brand">
+        <span class="text-primary">mnml</span><span class="text-secondary">.css</span>
+      </a>
+      <nav></nav>
+      <button class="theme-toggle no-bg">
+        <i class="fad fa-lightbulb"></i>
+        <span class="reader-only">Toggle theme</span>
+      </button>
+    </header>
+    <main class="container" id="main">
+      <header>
+        <h1>
+          <span class="text-primary">mnml</span><span class="text-secondary">.css</span>
+        </h1>
+        <p><em>A minimal, configurable CSS design system</em></p>
+        <p>
+          The goal of mnml.css is to be a minimum-viable design system. Its features
+          include:
+        </p>
+        <ul class="fa-ul features-list">
+          <li>
+            <span class="fa-li"><i class="fad fa-broom"></i></span> A CSS reset
+            compatible with modern browsers
+          </li>
+          <li>
+            <span class="fa-li"><i class="fad fa-phone-laptop"></i></span> A
+            mobile-first, responsive design approach
+          </li>
+          <li>
+            <span class="fa-li"><i class="fad fa-code"></i></span> A preference for
+            semantic tags over classes, when appropriate
+          </li>
+          <li>
+            <span class="fa-li"><i class="fad fa-sliders-h"></i></span>
+            Easy-to-implement customization using CSS Custom Properties
+          </li>
+          <li>
+            <span class="fa-li"><i class="fad fa-adjust"></i></span> Dark-mode support
+          </li>
+        </ul>
+        <p></p>
+      </header>
+
+      <section id="configuration">
+        <h2>Configuration</h2>
+        <p>
+          mnml.css uses
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"
+            >CSS Custom Properties</a
+          >
+          throughout to allow you to customize sizing, spacing, colors, and animation
+          timing.
+        </p>
+      </section>
+
+      <section id="typography">
+        <h2>Typography</h2>
+        <p>Out of the box mnml.css will give your basic typography elements ()</p>
+      </section>
+
+      <section id="forms">
+        <h2>Forms</h2>
+        <form action="." method="GET" class="demo-form">
+          <fieldset>
+            <legend>Fieldset legend</legend>
+
+            <p>
+              <label for="id_demo_form_text_input"
+                >Text input <abbr title="This field is required">*</abbr></label
+              >
+              <input
+                type="text"
+                name="text"
+                id="id_demo_form_text_input"
+                placeholder="Placeholder"
+                value="Value"
+                required
+              />
+              <span class="help">This is explanatory text</span>
+            </p>
+
+            <p>
+              <label for="id_demo_form_text_input--disabled"
+                >Text input (disabled)</label
+              >
+              <input
+                type="text"
+                name="text"
+                id="id_demo_form_text_input--disabled"
+                placeholder="Placeholder"
+                value="Value"
+                disabled
+              />
+            </p>
+
+            <p>
+              <label for="id_demo_form_text_input--readonly"
+                >Text input (readonly)</label
+              >
+              <input
+                type="text"
+                name="text"
+                id="id_demo_form_text_input--readonly"
+                placeholder="Placeholder"
+                value="Value"
+                readonly
+              />
+            </p>
+
+            <p>
+              <label for="id_demo_form_number_input">Number input</label>
+              <input type="number" name="number" id="id_demo_form_number_input" />
+            </p>
+
+            <p>
+              <label for="id_demo_form_number_input--no_arrows"
+                >Number input (no arrows)</label
+              >
+              <input
+                type="number"
+                name="number"
+                id="id_demo_form_number_input--no_arrows"
+                class="no-arrows"
+              />
+            </p>
+
+            <p>
+              <label for="id_demo_form_date_input">Date input</label>
+              <input type="date" name="date" id="id_demo_form_date_input" />
+            </p>
+
+            <p>
+              <label for="id_demo_form_file_input">File input</label>
+              <input type="file" name="file" id="id_demo_form_file_input" />
+            </p>
+
+            <p>
+              <label for="id_demo_form_textarea">Textarea input</label>
+              <textarea
+                name="textarea"
+                id="id_demo_form_textarea"
+                placeholder="Placeholder"
+                rows="10"
+              ></textarea>
+            </p>
+
+            <p>
+              <label for="id_demo_form_select">Select</label>
+              <select name="number" id="id_demo_form_select">
+                <option value="" selected disabled>Choose one:</option>
+                <option value="peanut">Peanut</option>
+                <option value="hazelnut">Hazelnut</option>
+                <option value="cashew">Cashew</option>
+                <option value="macadamia">Macadamia</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="id_demo_form_select--multiple">Select multiple</label>
+              <select name="number" id="id_demo_form_select--multiple" multiple>
+                <option value="" selected disabled>Choose one:</option>
+                <option value="peanut">Peanut</option>
+                <option value="hazelnut">Hazelnut</option>
+                <option value="cashew">Cashew</option>
+                <option value="macadamia">Macadamia</option>
+              </select>
+            </p>
+          </fieldset>
+        </form>
+
+        <h3>Inline form</h3>
+        <form class="demo-form grid">
+          <input
+            type="text"
+            name="text"
+            id="id_demo_form_text_input"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="id_demo_form_email_input"
+            placeholder="Email address"
+            required
+          />
+          <button type="submit" class="primary">I'm In!</button>
+        </form>
+      </section>
+
+      <section id="buttons">
+        <h2>Buttons</h2>
+        <div class="grid">
+          <button>Default</button>
+          <button disabled>Disabled</button>
+          <button class="primary">.primary</button>
+          <button class="secondary">.secondary</button>
+          <button class="pink">.pink</button>
+          <button class="violet">.violet</button>
+          <button class="blue">.blue</button>
+          <button class="teal">.teal</button>
+          <button class="lime">.lime</button>
+          <button class="orange">.orange</button>
+          <button class="red">.red</button>
+          <button class="grape">.grape</button>
+          <button class="indigo">.indigo</button>
+          <button class="cyan">.cyan</button>
+          <button class="green">.green</button>
+          <button class="yellow">.yellow</button>
+        </div>
+      </section>
+    </main>
+    <footer class="container sticky">
+      <small>&copy; 2022 DRyan, LLC. All Rights Reserved.</small>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/e90855e4a2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://dryan-files.s3.amazonaws.com/mnml.js"></script>
+    <script>
+      const root = document.documentElement;
+
+      root.dataset.theme =
+        window.localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      mnml.listen("click", ".theme-toggle", (ev, btn) => {
+        root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+        btn.blur();
+        window.localStorage.setItem("theme", root.dataset.theme);
+      });
+
+      mnml.listen("submit", ".demo-form", (ev, form) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        return false;
+      });
+    </script>
+  </body>
+</html>
