@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/mnml.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "prebuild": "npm run clean",
     "build": "npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.ts",
     "clean": "rm -rf dist/*",
