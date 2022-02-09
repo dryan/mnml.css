@@ -1,7 +1,12 @@
 {
-  "name": "@dryan/mnml.css",
+  "name": "@dryan-llc/mnml.css",
   "version": "1.0.0-alpha.0",
   "description": "",
+  "main": "package.json",
+  "repository": {
+    "url": "git+https://github.com/dryan/mnml.css",
+    "type": "git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "npm run clean",
