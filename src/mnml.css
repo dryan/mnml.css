@@ -80,47 +80,13 @@ ul[class] {
     Lucida Console, monospace;
   --body-bg: white;
   --body-color: var(--oc-gray-9, black);
-  --button-bg--default: var(--oc-gray-4, gray);
-  --button-bg--default--hover: var(--oc-gray-2, silver);
-  --button-bg--disabled: var(--oc-gray-2, silver);
-  --button-bg--primary: var(--theme-primary, var(--button-bg--default));
-  --button-bg--primary--hover: var(
-    --theme-primary--hover,
-    var(--button-bg--default--hover)
-  );
-  --button-bg--secondary: var(--theme-secondary, var(--button-bg--default));
-  --button-bg--secondary--hover: var(
-    --theme-secondary--hover,
-    var(--button-bg--default--hover)
-  );
-  --button-bg--pink: var(--oc-pink-9, var(--button-bg--default));
-  --button-bg--pink--hover: var(--oc-pink-8, var(--button-bg--default--hover));
-  --button-bg--violet: var(--oc-violet-9, var(--button-bg--default));
-  --button-bg--violet--hover: var(--oc-violet-8, var(--button-bg--default--hover));
-  --button-bg--blue: var(--oc-blue-9, var(--button-bg--default));
-  --button-bg--blue--hover: var(--oc-blue-8, var(--button-bg--default--hover));
-  --button-bg--teal: var(--oc-teal-9, var(--button-bg--default));
-  --button-bg--teal--hover: var(--oc-teal-8, var(--button-bg--default--hover));
-  --button-bg--lime: var(--oc-lime-9, var(--button-bg--default));
-  --button-bg--lime--hover: var(--oc-lime-8, var(--button-bg--default--hover));
-  --button-bg--orange: var(--oc-orange-9, var(--button-bg--default));
-  --button-bg--orange--hover: var(--oc-orange-8, var(--button-bg--default--hover));
-  --button-bg--red: var(--oc-red-9, var(--button-bg--default));
-  --button-bg--red--hover: var(--oc-red-8, var(--button-bg--default--hover));
-  --button-bg--grape: var(--oc-grape-9, var(--button-bg--default));
-  --button-bg--grape--hover: var(--oc-grape-8, var(--button-bg--default--hover));
-  --button-bg--indigo: var(--oc-indigo-9, var(--button-bg--default));
-  --button-bg--indigo--hover: var(--oc-indigo-8, var(--button-bg--default--hover));
-  --button-bg--cyan: var(--oc-cyan-9, var(--button-bg--default));
-  --button-bg--cyan--hover: var(--oc-cyan-8, var(--button-bg--default--hover));
-  --button-bg--green: var(--oc-green-9, var(--button-bg--default));
-  --button-bg--green--hover: var(--oc-green-8, var(--button-bg--default--hover));
-  --button-bg--yellow: var(--oc-yellow-9, var(--button-bg--default));
-  --button-bg--yellow--hover: var(--oc-yellow-8, var(--button-bg--default--hover));
+  --button-base--default: var(--oc-gray-4, gray);
+  --button-base--default--hover: var(--oc-gray-2, silver);
+  --button-base--disabled: var(--oc-gray-2, silver);
   --button-color--default: var(--oc-gray-9, black);
   --button-color--disabled: var(--oc-gray-5, #adb5bd);
-  --button-color--primary: var(--button-color--default);
-  --button-color--secondary: var(--button-color--default);
+  --button-border--default: transparent;
+  --button-border--disabled: transparent;
   --button-padding-block: 0.5rem;
   --button-padding-inline: 1rem;
   --button-radius: 0.25rem;
@@ -388,7 +354,7 @@ template,
 
 .container {
   margin-inline: auto;
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   padding-inline: var(--spacing);
 }
 
@@ -455,13 +421,10 @@ form {
   --input-text-color--focus: var(--oc-gray-9, black);
   --input-text-color--disabled: var(--oc-gray-9, black);
   --input-text-size: 1rem;
-  --input-file-button-bg: var(--button-bg--primary, var(--oc-blue-9, blue));
-  --input-file-button-color: var(--button-color--primary, white);
-  --input-file-button-bg--hover: var(
-    --button-bg--primary--hover,
-    var(--oc-blue-7, blue)
-  );
-  --input-file-button-color--hover: var(--button-color--primary--hover, white);
+  --input-file-button-bg: var(--theme-primary, var(--oc-blue-9, blue));
+  --input-file-button-color: var(--theme-primary--contrast-color, white);
+  --input-file-button-bg--hover: var(--theme-primary--hover, var(--oc-blue-7, blue));
+  --input-file-button-color--hover: var(--theme-primary--contrast-color, white);
   --input-focus-ring-opacity: 0.5;
   --input-focus-ring: rgb(var(--focus-ring-color) / var(--input-focus-ring-opacity));
   --input-placeholder-color: #6b737b;
@@ -651,12 +614,18 @@ form {
  */
 
 :where(button, .button) {
-  --button-bg: var(--button-bg--default);
+  --button-base: var(--button-base--default);
+  --button-base--hover: var(--button-base--default--hover);
+  --button-bg: var(--button-base);
+  --button-bg--hover: var(--button-base--hover);
   --button-color: var(--button-color--default);
+  --button-color--hover: var(--button-color--default);
+  --button-border: var(--button-base);
+  --button-border--hover: var(--button-base--hover);
 
   align-items: center;
   background: var(--button-bg);
-  border: 2px solid transparent;
+  border: 2px solid var(--button-border);
   border-radius: var(--button-radius);
   color: var(--button-color);
   display: inline-flex;
@@ -671,164 +640,129 @@ form {
   will-change: color, background-color;
 
   &:where(:hover, :active, :focus, :focus-visible) {
-    --button-bg: var(--button-bg--default--hover);
-    --button-color: var(--button-color--default--hover, var(--button-color--default));
+    --button-bg: var(--button-bg--hover);
+    --button-color: var(--button-color--hover);
+    --button-border: var(--buton-border--hover);
   }
 
   &.no-bg {
     background-color: transparent;
+    border-color: transparent;
   }
 
   &.primary {
-    --button-bg: var(--button-bg--primary);
-    --button-color: var(--button-color--primary);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--primary--hover, var(--button-bg--primary));
-      --button-color: var(--button-color--primary--hover, var(--button-color--primary));
-    }
+    --button-base: var(--theme-primary, --button-base--default);
+    --button-base--hover: var(
+      --theme-primary--hover,
+      var(--theme-primary, --button-base--default)
+    );
+    --button-color: var(--theme-primary--contrast-color, var(--button-color--default));
   }
 
   &.secondary {
-    --button-bg: var(--button-bg--secondary);
-    --button-color: var(--button-color--secondary);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--secondary--hover, var(--button-bg--secondary));
-      --button-color: var(
-        --button-color--secondary--hover,
-        var(--button-color--secondary)
-      );
-    }
+    --button-base: var(--theme-secondary, --button-base--default);
+    --button-base--hover: var(
+      --theme-secondary--hover,
+      var(--theme-secondary, --button-base--default)
+    );
+    --button-color: var(
+      --theme-secondary--contrast-color,
+      var(--button-color--default)
+    );
   }
 
   &.pink {
-    --button-bg: var(--button-bg--pink);
-    --button-color: var(--button-color--pink);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--pink--hover, var(--button-bg--pink));
-      --button-color: var(--button-color--pink--hover, var(--button-color--pink));
-    }
+    --button-base: var(--oc-pink-9, var(--button-base--default));
+    --button-base--hover: var(--oc-pink-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.violet {
-    --button-bg: var(--button-bg--violet);
-    --button-color: var(--button-color--violet);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--violet--hover, var(--button-bg--violet));
-      --button-color: var(--button-color--violet--hover, var(--button-color--violet));
-    }
+    --button-base: var(--oc-violet-9, var(--button-base--default));
+    --button-base--hover: var(--oc-violet-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.blue {
-    --button-bg: var(--button-bg--blue);
-    --button-color: var(--button-color--blue);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--blue--hover, var(--button-bg--blue));
-      --button-color: var(--button-color--blue--hover, var(--button-color--blue));
-    }
+    --button-base: var(--oc-blue-9, var(--button-base--default));
+    --button-base--hover: var(--oc-blue-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.teal {
-    --button-bg: var(--button-bg--teal);
-    --button-color: var(--button-color--teal);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--teal--hover, var(--button-bg--teal));
-      --button-color: var(--button-color--teal--hover, var(--button-color--teal));
-    }
+    --button-base: var(--oc-teal-9, var(--button-base--default));
+    --button-base--hover: var(--oc-teal-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.lime {
-    --button-bg: var(--button-bg--lime);
-    --button-color: var(--button-color--lime);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--lime--hover, var(--button-bg--lime));
-      --button-color: var(--button-color--lime--hover, var(--button-color--lime));
-    }
+    --button-base: var(--oc-lime-9, var(--button-base--default));
+    --button-base--hover: var(--oc-lime-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.orange {
-    --button-bg: var(--button-bg--orange);
-    --button-color: var(--button-color--orange);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--orange--hover, var(--button-bg--orange));
-      --button-color: var(--button-color--orange--hover, var(--button-color--orange));
-    }
+    --button-base: var(--oc-orange-9, var(--button-base--default));
+    --button-base--hover: var(--oc-orange-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.red {
-    --button-bg: var(--button-bg--red);
-    --button-color: var(--button-color--red);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--red--hover, var(--button-bg--red));
-      --button-color: var(--button-color--red--hover, var(--button-color--red));
-    }
+    --button-base: var(--oc-red-9, var(--button-base--default));
+    --button-base--hover: var(--oc-red-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.grape {
-    --button-bg: var(--button-bg--grape);
-    --button-color: var(--button-color--grape);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--grape--hover, var(--button-bg--grape));
-      --button-color: var(--button-color--grape--hover, var(--button-color--grape));
-    }
+    --button-base: var(--oc-grape-9, var(--button-base--default));
+    --button-base--hover: var(--oc-grape-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.indigo {
-    --button-bg: var(--button-bg--indigo);
-    --button-color: var(--button-color--indigo);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--indigo--hover, var(--button-bg--indigo));
-      --button-color: var(--button-color--indigo--hover, var(--button-color--indigo));
-    }
+    --button-base: var(--oc-indigo-9, var(--button-base--default));
+    --button-base--hover: var(--oc-indigo-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.cyan {
-    --button-bg: var(--button-bg--cyan);
-    --button-color: var(--button-color--cyan);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--cyan--hover, var(--button-bg--cyan));
-      --button-color: var(--button-color--cyan--hover, var(--button-color--cyan));
-    }
+    --button-base: var(--oc-cyan-9, var(--button-base--default));
+    --button-base--hover: var(--oc-cyan-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.green {
-    --button-bg: var(--button-bg--green);
-    --button-color: var(--button-color--green);
-
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--green--hover, var(--button-bg--green));
-      --button-color: var(--button-color--green--hover, var(--button-color--green));
-    }
+    --button-base: var(--oc-green-9, var(--button-base--default));
+    --button-base--hover: var(--oc-green-8, var(--button-base--default--hover));
+    --button-color: white;
   }
 
   &.yellow {
-    --button-bg: var(--button-bg--yellow);
-    --button-color: var(--button-color--yellow);
+    --button-base: var(--oc-yellow-9, var(--button-base--default));
+    --button-base--hover: var(--oc-yellow-8, var(--button-base--default--hover));
+    --button-color: white;
+  }
 
-    &:where(:hover, :active, :focus, :focus-visible) {
-      --button-bg: var(--button-bg--yellow--hover, var(--button-bg--yellow));
-      --button-color: var(--button-color--yellow--hover, var(--button-color--yellow));
+  &.outline {
+    &:where(:not(:hover, :active, :focus, :focus-visible)) {
+      --button-bg: transparent;
+      --button-border: var(--button-base);
+      --button-color: var(--button-base);
     }
   }
 
   &:where(:disabled, [disabled]) {
-    --button-bg: var(--button-bg--disabled);
+    --button-base: var(--button-base--disabled);
     --button-color: var(--button-color--disabled);
+    --button-border: var(--button-border--disabled);
 
-    border-color: var(--button-bg);
     cursor: not-allowed;
     pointer-events: none;
+
+    &.outline {
+      --button-bg: var(--button-base);
+      --button-color: var(--button-color--disabled);
+    }
   }
 }
 
