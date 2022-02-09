@@ -18,6 +18,15 @@
         "ideas",
         "infra"
       ]
+    },
+    {
+      "login": "G00DMANY",
+      "name": "G00DMANY",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99351732?v=4",
+      "profile": "https://github.com/G00DMANY",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
