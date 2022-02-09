@@ -1,19 +1,15 @@
 {
-  "name": "@dryan-llc/mnml.css",
-  "version": "1.0.0-alpha.8",
+  "name": "@dryan/mnml.css",
+  "version": "1.0.0-alpha.0",
   "description": "",
-  "main": "dist/mnml.css",
-  "repository": {
-    "url": "git+https://github.com/dryan/mnml.css",
-    "type": "git"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "npm run clean",
     "build": "npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.ts",
     "clean": "rm -rf dist/*",
     "docs": "npm run build && cp ./dist/mnml* ./docs/assets/.",
-    "watch": "nodemon --exec npm run docs",
+    "watch": "nodemon --exec npm run build",
+    "watch:docs": "nodemon --exec npm run docs",
     "prepublish": "npm run build"
   },
   "author": "Dan Ryan",
@@ -24,8 +20,5 @@
     "browserslist": "^4.19.1",
     "nodemon": "^2.0.15",
     "open-color": "^1.9.1"
-  },
-  "files": [
-    "dist/**/*"
-  ]
+  }
 }
