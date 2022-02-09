@@ -71,12 +71,12 @@ ul[class] {
 
 :root {
   /* from https://systemfontstack.com */
-  --bl-font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, avenir next, avenir,
+  --ui-font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, avenir next, avenir,
     segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-  --bl-font-serif: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
+  --ui-font-serif: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
     Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
     Segoe UI Emoji, Segoe UI Symbol;
-  --bl-font-monospace: ui-monospace, Menlo, Consolas, Monaco, Liberation Mono,
+  --ui-font-monospace: ui-monospace, Menlo, Consolas, Monaco, Liberation Mono,
     Lucida Console, monospace;
   --body-bg: white;
   --body-color: var(--oc-gray-9, black);
@@ -87,9 +87,11 @@ ul[class] {
   --button-color--disabled: var(--oc-gray-5, #adb5bd);
   --button-border--default: transparent;
   --button-border--disabled: transparent;
+  --button-font-family: var(--ui-font-sans);
   --button-padding-block: 0.5rem;
   --button-padding-inline: 1rem;
   --button-radius: 0.25rem;
+  --button-text-transform: none;
   --focus-ring-color: 28 126 214;
   --link-color--hover: var(--oc-blue-6, #228be6);
   --link-color--visited: var(--oc-violet-9, #5f3dc4);
@@ -131,10 +133,10 @@ html {
 body {
   background-color: var(--body-bg);
   color: var(--body-color);
-  font-family: var(--body-font-family, var(--bl-font-sans));
+  font-family: var(--body-font-family, var(--ui-font-sans));
 }
 
-a {
+:where(a) {
   transition-duration: var(--animation-timing);
   transition-property: color;
   transition-timing-function: ease-out;
@@ -168,7 +170,7 @@ h4,
 h5,
 h6 {
   color: var(--headers-color, inherit);
-  font-family: var(--headers-font-family, var(--bl-font-sans));
+  font-family: var(--headers-font-family, var(--ui-font-sans));
   margin-block-end: var(--spacing);
   margin-block-start: 0;
   margin-inline: auto;
@@ -629,12 +631,14 @@ form {
   border-radius: var(--button-radius);
   color: var(--button-color);
   display: inline-flex;
-  font-weight: bold;
+  font-family: var(--button-font-family);
+  font-weight: var(--button-font-weight, bold);
   justify-content: center;
   min-height: 42px;
   padding: var(--button-padding-block) var(--button-padding-inline);
   text-align: center;
   text-decoration: none;
+  text-transform: var(--button-text-transform);
   transition-duration: var(--animation-timing);
   transition-property: color, background-color;
   will-change: color, background-color;
@@ -642,7 +646,11 @@ form {
   &:where(:hover, :active, :focus, :focus-visible) {
     --button-bg: var(--button-bg--hover);
     --button-color: var(--button-color--hover);
-    --button-border: var(--buton-border--hover);
+    --button-border: var(--button-border--hover);
+  }
+
+  &:where(:link) {
+    color: var(--button-color);
   }
 
   &.no-bg {
