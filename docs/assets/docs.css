@@ -1,11 +1,12 @@
 :root {
   --theme-primary: var(--oc-violet-7);
   --theme-primary--hover: var(--oc-violet-8);
+  --theme-primary--contrast-color: white;
   --theme-secondary: var(--oc-pink-7);
   --theme-secondary--hover: var(--oc-pink-8);
+  --theme-secondary--contrast-color: var(--oc-gray-9);
   --fa-primary-color: var(--theme-primary);
   --fa-secondary-color: var(--theme-secondary);
-  --button-color--primary: white;
 }
 
 body > header {

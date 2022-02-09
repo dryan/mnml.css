@@ -8,7 +8,9 @@
     "build": "npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.ts",
     "clean": "rm -rf dist/*",
     "docs": "npm run build && cp ./dist/mnml* ./docs/assets/.",
-    "watch": "nodemon --exec npm run docs"
+    "watch": "nodemon --exec npm run build",
+    "watch:docs": "nodemon --exec npm run docs",
+    "prepublish": "npm run build"
   },
   "author": "Dan Ryan",
   "license": "MIT",
