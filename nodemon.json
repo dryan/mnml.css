@@ -1,0 +1,6 @@
+{
+  "verbose": false,
+  "ignore": ["./dist", "./docs/assets"],
+  "watch": ["./docs", "./src", "./builder.ts"],
+  "ext": "js json css ts tsx html"
+}
