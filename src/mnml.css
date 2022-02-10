@@ -757,6 +757,12 @@ form {
     --button-color: #343a40;
   }
 
+  &.black {
+    --button-base: black;
+    --button-base--hover: #343a40;
+    --button-color: white;
+  }
+
   &.outline {
     &:where(:not(:hover, :active, :focus, :focus-visible)) {
       --button-bg: transparent;
