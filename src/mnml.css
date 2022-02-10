@@ -317,6 +317,7 @@ body {
 
 img {
   border-style: none;
+  height: auto;
   max-width: 100%;
 }
 
