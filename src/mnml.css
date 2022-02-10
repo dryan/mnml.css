@@ -252,7 +252,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--font-monospace, var(--bl-font-monospace));
+  font-family: var(--font-monospace, var(--ui-font-monospace));
   font-size: 1rem;
 }
 
