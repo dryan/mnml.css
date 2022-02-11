@@ -150,14 +150,23 @@ body {
     color: var(--link-color--visited);
   }
 
-  &:where(:hover, :active, :focus, :focus-visible) {
+  &:where(:hover, :active, :focus) {
+    color: var(--link-color--hover);
+  }
+
+  &:where(:focus-visible) {
     color: var(--link-color--hover);
   }
 }
 
 a,
 button {
-  &:where(:focus, :focus-visible) {
+  &:where(:focus) {
+    outline: 2px solid rgb(var(--focus-ring-color));
+    outline-offset: var(--focus-ring-offset, 2px);
+  }
+
+  &:where(:focus-visible) {
     outline: 2px solid rgb(var(--focus-ring-color));
     outline-offset: var(--focus-ring-offset, 2px);
   }
@@ -481,7 +490,15 @@ form {
     width: 100%;
     will-change: box-shadow, background-color, border-color;
 
-    &:where(:focus, :focus-visible) {
+    &:where(:focus) {
+      background-color: var(--input-bg--focus);
+      border-color: var(--input-border-color--focus);
+      box-shadow: 0 0 0 4px var(--input-focus-ring);
+      color: var(--input-text-color--focus);
+      outline: none;
+    }
+
+    &:where(:focus-visible) {
       background-color: var(--input-bg--focus);
       border-color: var(--input-border-color--focus);
       box-shadow: 0 0 0 4px var(--input-focus-ring);
@@ -546,7 +563,15 @@ form {
       }
     }
 
-    &:where(:hover, :focus, :focus-visible) {
+    &:where(:hover, :focus) {
+      &::file-selector-button,
+      &::-webkit-file-upload-button {
+        --input-file-button-bg: var(--input-file-button-bg--hover);
+        --input-file-button-color: var(--input-file-button-color--hover);
+      }
+    }
+
+    &:where(:focus-visible) {
       &::file-selector-button,
       &::-webkit-file-upload-button {
         --input-file-button-bg: var(--input-file-button-bg--hover);
@@ -645,7 +670,13 @@ form {
   transition-property: color, background-color;
   will-change: color, background-color;
 
-  &:where(:hover, :active, :focus, :focus-visible) {
+  &:where(:hover, :active, :focus) {
+    --button-bg: var(--button-bg--hover);
+    --button-color: var(--button-color--hover);
+    --button-border: var(--button-border--hover);
+  }
+
+  &:where(:focus-visible) {
     --button-bg: var(--button-bg--hover);
     --button-color: var(--button-color--hover);
     --button-border: var(--button-border--hover);
@@ -766,7 +797,13 @@ form {
   }
 
   &.outline {
-    &:where(:not(:hover, :active, :focus, :focus-visible)) {
+    &:where(:not(:hover, :active, :focus)) {
+      --button-bg: transparent;
+      --button-border: var(--button-base);
+      --button-color: var(--button-base);
+    }
+
+    &:where(:not(:focus-visible)) {
       --button-bg: transparent;
       --button-border: var(--button-base);
       --button-color: var(--button-base);
