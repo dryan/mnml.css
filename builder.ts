@@ -20,6 +20,9 @@ interface BuildFilesOptions {
 }
 
 const buildFiles = ({ filename, withOpenColors }: BuildFilesOptions): void => {
+  if (!fs.existsSync("./dist")) {
+    fs.mkdirSync("./dist");
+  }
   let source = fs.readFileSync(`src/mnml.css`);
   if (withOpenColors) {
     source = Buffer.concat([

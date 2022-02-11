@@ -1,9 +1,10 @@
 {
-  "name": "@dryan/mnml.css",
-  "version": "1.0.0-alpha.0",
+  "name": "@dryan-llc/mnml.css",
+  "version": "1.0.0-alpha.14",
   "description": "",
+  "main": "dist/mnml.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "prebuild": "npm run clean",
     "build": "npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.ts",
     "clean": "rm -rf dist/*",
@@ -13,12 +14,15 @@
     "prepublish": "npm run build"
   },
   "author": "Dan Ryan",
-  "license": "MIT",
+  "license": "MPL",
   "devDependencies": {
     "@parcel/css": "^1.2.0",
     "@types/node": "^17.0.14",
     "browserslist": "^4.19.1",
     "nodemon": "^2.0.15",
     "open-color": "^1.9.1"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
