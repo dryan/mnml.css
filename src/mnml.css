@@ -127,7 +127,7 @@ ul[class] {
 
 html {
   line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: none; /* https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/ */
 }
 
 body {
