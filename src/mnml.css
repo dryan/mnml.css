@@ -93,6 +93,7 @@ ul[class] {
   --button-radius: 0.25rem;
   --button-text-transform: none;
   --focus-ring-color: 28 126 214;
+  --headers-weight: bolder;
   --link-color--hover: var(--oc-blue-6, #228be6);
   --link-color--visited: var(--oc-violet-9, #5f3dc4);
   --link-color: var(--oc-blue-9, #1864ab);
@@ -171,6 +172,7 @@ h5,
 h6 {
   color: var(--headers-color, inherit);
   font-family: var(--headers-font-family, var(--ui-font-sans));
+  font-weight: var(--headers-weight);
   margin-block-end: var(--spacing);
   margin-block-start: 0;
   margin-inline: auto;
