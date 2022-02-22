@@ -2,6 +2,7 @@
  * Inspirations
  * https://www.sarasoueidan.com/blog/focus-indicators/
  * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://moderncss.dev/pure-css-custom-styled-radio-buttons/
  */
 
 /*
@@ -452,6 +453,12 @@ form {
   & label {
     display: block;
     margin-block-end: 0.25rem;
+
+    &.toggle-label {
+      display: grid;
+      gap: calc(var(--spacing) * 0.75);
+      grid-template-columns: 1em auto;
+    }
   }
 
   & .help {
@@ -504,6 +511,58 @@ form {
 
     &::placeholder {
       color: var(--input-placeholder-color);
+    }
+  }
+
+  & :where(input[type="radio"], input[type="checkbox"]) {
+    appearance: none;
+    background-color: transparent;
+    border: 0.15em solid var(--theme-primary, currentColor);
+    color: var(--theme-primary, currentColor);
+    display: grid;
+    font: inherit;
+    height: 1.15em;
+    place-content: center;
+    width: 1.15em;
+
+    &:checked::before {
+      transform: scale(1);
+    }
+
+    &:where(:focus) {
+      outline: max(2px, 0.15em) solid var(--input-focus-ring);
+      outline-offset: max(2px, 0.15em);
+    }
+  }
+
+  & :where(input[type="radio"]) {
+    border-radius: 50%;
+
+    &::before {
+      border-radius: 50%;
+      box-shadow: inset 1em 1em var(--theme-primary, currentColor);
+      content: "";
+      height: 0.65em;
+      transform: scale(0);
+      transition: var(--animation-timing) transform ease-in-out;
+      width: 0.65em;
+    }
+  }
+
+  & :where(input[type="checkbox"]) {
+    border-radius: 0.15em;
+    transform: translateY(0.15em);
+    transition: var(--animation-timing) background-color ease-in-out;
+
+    &:checked {
+      background-color: var(--theme-primary, currentColor);
+    }
+
+    &::before {
+      content: "✓";
+      color: var(--checkmark-color, white);
+      transform: scale(0);
+      transition: var(--animation-timing) transform ease-in-out;
     }
   }
 
