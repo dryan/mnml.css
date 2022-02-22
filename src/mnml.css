@@ -69,7 +69,7 @@ ul[class] {
  * Typography & Colors
  */
 
-:root {
+:where(:root, :host) {
   /* from https://systemfontstack.com */
   --ui-font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, avenir next, avenir,
     segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
@@ -103,16 +103,16 @@ ul[class] {
   color-scheme: light dark;
 }
 
-:root[data-theme~="light"] {
+:where(:root, :host)[data-theme~="light"] {
   color-scheme: light;
 }
 
-:root[data-theme~="dark"] {
+:where(:root, :host)[data-theme~="dark"] {
   color-scheme: dark;
 }
 
 @media (--dark-mode) {
-  :root:not([data-theme~="light"]) {
+  :where(:root, :host):not([data-theme~="light"]) {
     --body-bg: var(--oc-gray-9);
     --body-color: var(--oc-gray-0, white);
     --link-color: var(--oc-blue-4, #4dabf7);
@@ -297,12 +297,12 @@ button {
  * CSS property for animation timings that becomes 0 for folx who don't want animations
  */
 
-:root {
+:where(:root, :host) {
   --animation-timing: 200ms;
 }
 
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
-  :root {
+  :where(:root, :host) {
     --animation-timing: 0s;
   }
 }
@@ -354,7 +354,7 @@ template,
  * Layout
  */
 
-:root {
+:where(:root, :host) {
   --spacing: 1rem;
 }
 
@@ -587,7 +587,7 @@ form {
   }
 }
 
-:root[dir="rtl"] {
+:where(:root, :host)[dir="rtl"] {
   & form {
     & select {
       background-position: left 0.75rem center;
@@ -596,7 +596,7 @@ form {
 }
 
 @media (--dark-mode) {
-  :root:not([data-theme~="light"]) {
+  :where(:root, :host):not([data-theme~="light"]) {
     & form {
       --input-bg: var(--oc-gray-7, #495057);
       --input-bg--disabled: var(--oc-gray-8, #343a40);
