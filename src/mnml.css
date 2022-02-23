@@ -16,9 +16,12 @@
  */
 *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
   all: unset;
-  color: revert;
   cursor: revert;
   display: revert;
+
+  &:not(:root, :host, body) {
+    color: revert;
+  }
 }
 
 *,
