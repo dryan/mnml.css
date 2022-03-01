@@ -527,6 +527,7 @@ form {
     font: inherit;
     height: 1.15em;
     place-content: center;
+    transform: translateY(0.2em);
     width: 1.15em;
 
     &:checked::before {
@@ -555,7 +556,6 @@ form {
 
   & :where(input[type="checkbox"]) {
     border-radius: 0.15em;
-    transform: translateY(0.15em);
     transition: var(--animation-timing) background-color ease-in-out;
 
     &:checked {
