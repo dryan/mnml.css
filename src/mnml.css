@@ -19,10 +19,6 @@
   cursor: revert;
   display: revert;
   resize: revert;
-
-  &:not(:root, :host, body) {
-    color: revert;
-  }
 }
 
 *,
