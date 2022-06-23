@@ -14,10 +14,11 @@
 /*
  * Reset browser defaults
  */
-*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+*:where(:not(iframe, canvas, img, svg, video, dialog):not(svg *)) {
   all: unset;
   cursor: revert;
   display: revert;
+  list-style-type: revert;
   resize: revert;
 }
 
@@ -520,7 +521,7 @@ form {
     background-color: transparent;
     border: 0.15em solid var(--theme-primary, currentColor);
     color: var(--theme-primary, currentColor);
-    display: grid;
+    display: inline-grid;
     font: inherit;
     height: 1.15em;
     place-content: center;
