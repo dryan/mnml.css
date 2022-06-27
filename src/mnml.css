@@ -836,7 +836,7 @@ form {
     }
   }
 
-  &:where(:disabled, [disabled]) {
+  &:is(:disabled, [disabled]) {
     --button-base: var(--button-base--disabled);
     --button-color: var(--button-color--disabled);
     --button-border: var(--button-border--disabled);
