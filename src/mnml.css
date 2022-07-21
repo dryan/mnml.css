@@ -366,29 +366,30 @@ template,
   padding-inline: var(--spacing);
 }
 
-body {
-  & > :where(header, main, footer, section) {
-    padding-block: var(--spacing);
+body > :where(header, main, footer, section),
+:where(.site-header, .site-main, .site-footer) {
+  padding-block: var(--spacing);
+}
+
+body > header,
+.site-header {
+  align-items: center;
+
+  &.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
+}
 
-  & > header {
-    align-items: center;
+body > footer,
+.site-footer {
+  text-align: center;
 
-    &.sticky {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-  }
-
-  & > footer {
-    text-align: center;
-
-    &.sticky {
-      position: sticky;
-      top: 100%;
-      z-index: 10;
-    }
+  &.sticky {
+    position: sticky;
+    top: 100%;
+    z-index: 10;
   }
 }
 
