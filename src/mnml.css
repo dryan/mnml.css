@@ -370,7 +370,7 @@ body > :where(header, main, footer, section),
 :where(.site-header, .site-main, .site-footer) {
   padding-block: var(--spacing);
 
-  > .container {
+  & > .container {
     padding-inline: 0;
   }
 }
