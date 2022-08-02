@@ -841,6 +841,10 @@ form {
     }
   }
 
+  &.rounded {
+    --button-radius: 5rem;
+  }
+
   &:is(:disabled, [disabled]) {
     --button-base: var(--button-base--disabled);
     --button-color: var(--button-color--disabled);
