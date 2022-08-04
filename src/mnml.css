@@ -19,7 +19,25 @@
   cursor: revert;
   display: revert;
   list-style-type: revert;
+  outline: revert;
   resize: revert;
+}
+
+*:where(:focus) {
+  outline: 2px solid rgb(var(--focus-ring-color));
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+@supports selector(:focus-visible) {
+  *:where(:focus) {
+    outline: unset;
+    outline-offset: unset;
+  }
+
+  *:where(:focus-visible) {
+    outline: 2px solid rgb(var(--focus-ring-color));
+    outline-offset: var(--focus-ring-offset, 2px);
+  }
 }
 
 *,
@@ -162,14 +180,6 @@ body {
 :where(hr) {
   border-top: 1px solid currentColor;
   margin-block: 1rem;
-}
-
-a,
-button {
-  &:where(:focus) {
-    outline: 2px solid rgb(var(--focus-ring-color));
-    outline-offset: var(--focus-ring-offset, 2px);
-  }
 }
 
 h1,
