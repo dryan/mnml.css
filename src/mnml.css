@@ -101,6 +101,7 @@ ul[class] {
   --link-color: var(--oc-blue-9, #1864ab);
   --selection-bg: var(--oc-yellow-4, #ffd43b);
   --selection-color: var(--oc-gray-9, #212529);
+  --input-min-height: 56px;
 
   color-scheme: light dark;
 }
@@ -156,6 +157,11 @@ body {
   &:where(:hover, :active, :focus) {
     color: var(--link-color--hover);
   }
+}
+
+:where(hr) {
+  border-top: 1px solid currentColor;
+  margin-block: 1rem;
 }
 
 a,
@@ -341,6 +347,7 @@ hr {
 
 details {
   display: block;
+  margin-inline-start: 1rem;
 }
 
 summary {
@@ -488,7 +495,7 @@ form {
     color: var(--input-text-color);
     display: block;
     font-size: var(--input-text-size);
-    min-height: 56px;
+    min-height: var(--input-min-height);
     padding-block: var(--input-padding-block);
     padding-inline: var(--input-padding-inline);
     transition-duration: var(--animation-timing);
@@ -522,55 +529,7 @@ form {
   }
 
   & :where(input[type="radio"], input[type="checkbox"]) {
-    appearance: none;
-    background-color: transparent;
-    border: 0.15em solid var(--theme-primary, currentColor);
-    color: var(--theme-primary, currentColor);
-    display: inline-grid;
-    font: inherit;
-    height: 1.15em;
-    place-content: center;
-    transform: translateY(0.2em);
-    width: 1.15em;
-
-    &:checked::before {
-      transform: scale(1);
-    }
-
-    &:where(:focus) {
-      outline: max(2px, 0.15em) solid var(--input-focus-ring);
-      outline-offset: max(2px, 0.15em);
-    }
-  }
-
-  & :where(input[type="radio"]) {
-    border-radius: 50%;
-
-    &::before {
-      border-radius: 50%;
-      box-shadow: inset 1em 1em var(--theme-primary, currentColor);
-      content: "";
-      height: 0.65em;
-      transform: scale(0);
-      transition: var(--animation-timing) transform ease-in-out;
-      width: 0.65em;
-    }
-  }
-
-  & :where(input[type="checkbox"]) {
-    border-radius: 0.15em;
-    transition: var(--animation-timing) background-color ease-in-out;
-
-    &:checked {
-      background-color: var(--theme-primary, currentColor);
-    }
-
-    &::before {
-      content: "✓";
-      color: var(--checkmark-color, white);
-      transform: scale(0);
-      transition: var(--animation-timing) transform ease-in-out;
-    }
+    accent-color: var(--theme-primary, currentColor);
   }
 
   & input[type="number"].no-arrows {
@@ -862,6 +821,6 @@ form {
 
 form {
   & :where(button, .button) {
-    min-height: 56px;
+    min-height: var(--input-min-height);
   }
 }
