@@ -488,6 +488,7 @@ form {
   }
 
   & :where(input[type]:not([type="radio"]):not([type="checkbox"]), textarea, select) {
+    appearance: auto;
     background-clip: padding-box;
     background: var(--input-bg);
     border: var(--input-border-width) solid var(--input-border-color);
@@ -530,6 +531,7 @@ form {
 
   & :where(input[type="radio"], input[type="checkbox"]) {
     accent-color: var(--theme-primary, currentColor);
+    appearance: auto;
   }
 
   & input[type="number"].no-arrows {
