@@ -28,6 +28,11 @@ const buildFiles = ({ filename, withOpenColors }: BuildFilesOptions): void => {
     source = Buffer.concat([
       source,
       newLine,
+      fs.readFileSync(`src/mnml-plus-opencolor.css`),
+    ]);
+    source = Buffer.concat([
+      source,
+      newLine,
       fs.readFileSync(path.join("node_modules", "open-color", "open-color.css")),
     ]);
   }

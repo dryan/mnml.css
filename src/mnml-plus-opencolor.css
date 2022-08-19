@@ -1,0 +1,138 @@
+/*
+ * override defaults with opencolors
+ */
+
+:where(:root, :host) {
+  --skip-link-color: var(--oc-gray-9);
+  --skip-link-bg: var(--oc-yellow-4);
+  --body-color: var(--oc-gray-9);
+  --button-base--default: var(--oc-gray-4);
+  --button-base--default--hover: var(--oc-gray-2);
+  --button-base--disabled: var(--oc-gray-2);
+  --button-color--default: var(--oc-gray-9);
+  --button-color--disabled: var(--oc-gray-5);
+  --link-color--hover: var(--oc-blue-6);
+  --link-color--visited: var(--oc-violet-9);
+  --link-color: var(--oc-blue-9);
+  --selection-bg: var(--oc-yellow-4);
+  --selection-color: var(--oc-gray-9);
+}
+
+@media (--dark-mode) {
+  :where(:root, :host):not([data-theme~="light"]) {
+    --body-bg: var(--oc-gray-9);
+    --body-color: var(--oc-gray-0);
+    --link-color: var(--oc-blue-4);
+    --link-color--visited: var(--oc-violet-2);
+    --link-color--hover: var(--oc-blue-2);
+  }
+}
+
+form {
+  --input-bg: var(--oc-gray-0);
+  --input-bg--disabled: var(--oc-gray-2);
+  --input-border-color: var(--oc-gray-1);
+  --input-border-color--disabled: var(--oc-gray-2);
+  --input-border-color--focus: var(--oc-gray-3);
+  --input-text-color: var(--oc-gray-9);
+  --input-text-color--focus: var(--oc-gray-9);
+  --input-text-color--disabled: var(--oc-gray-9);
+  --input-file-button-bg: var(--theme-primary, var(--oc-blue-9));
+  --input-file-button-bg--hover: var(--theme-primary--hover, var(--oc-blue-7));
+  --input-file-button-color--hover: var(--theme-primary--contrast-color);
+  --input-focus-ring: rgb(var(--focus-ring-color) / var(--input-focus-ring-opacity));
+  --input-placeholder-color: var(--oc-gray-6);
+  --required-color: var(--oc-red-9);
+}
+
+@media (--dark-mode) {
+  :where(:root, :host):not([data-theme~="light"]) {
+    & form {
+      --input-bg: var(--oc-gray-7);
+      --input-bg--disabled: var(--oc-gray-8);
+      --input-bg--focus: var(--oc-gray-7);
+      --input-border-color: var(--oc-gray-8);
+      --input-border-color--disabled: var(--oc-gray-8);
+      --input-border-color--focus: var(--oc-gray-7);
+      --input-placeholder-color: var(--oc-gray-1);
+      --input-text-color: var(--oc-gray-0);
+      --input-text-color--disabled: var(--oc-gray-4);
+      --input-text-color--focus: var(--oc-gray-0);
+      --required-color: var(--oc-red-4);
+    }
+  }
+}
+
+:where(button, .button) {
+  &.pink {
+    --button-base: var(--oc-pink-9);
+    --button-base--hover: var(--oc-pink-8);
+    --button-color: white;
+  }
+
+  &.violet {
+    --button-base: var(--oc-violet-9);
+    --button-base--hover: var(--oc-violet-8);
+    --button-color: white;
+  }
+
+  &.blue {
+    --button-base: var(--oc-blue-9);
+    --button-base--hover: var(--oc-blue-8);
+    --button-color: white;
+  }
+
+  &.teal {
+    --button-base: var(--oc-teal-9);
+    --button-base--hover: var(--oc-teal-8);
+    --button-color: white;
+  }
+
+  &.lime {
+    --button-base: var(--oc-lime-9);
+    --button-base--hover: var(--oc-lime-8);
+    --button-color: white;
+  }
+
+  &.orange {
+    --button-base: var(--oc-orange-9);
+    --button-base--hover: var(--oc-orange-8);
+    --button-color: white;
+  }
+
+  &.red {
+    --button-base: var(--oc-red-9);
+    --button-base--hover: var(--oc-red-8);
+    --button-color: white;
+  }
+
+  &.grape {
+    --button-base: var(--oc-grape-9);
+    --button-base--hover: var(--oc-grape-8);
+    --button-color: white;
+  }
+
+  &.indigo {
+    --button-base: var(--oc-indigo-9);
+    --button-base--hover: var(--oc-indigo-8);
+    --button-color: white;
+  }
+
+  &.cyan {
+    --button-base: var(--oc-cyan-9);
+    --button-base--hover: var(--oc-cyan-8);
+    --button-color: white;
+  }
+
+  &.green {
+    --button-base: var(--oc-green-9);
+    --button-base--hover: var(--oc-green-8);
+    --button-color: white;
+  }
+
+  &.yellow {
+    --button-base: var(--oc-yellow-9);
+    --button-base--hover: var(--oc-yellow-8);
+    --button-color: white;
+  }
+}
