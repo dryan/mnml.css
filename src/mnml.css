@@ -169,6 +169,7 @@
     }
 
     :where(a) {
+      text-decoration: underline;
       transition-duration: var(--animation-timing);
       transition-property: color;
       transition-timing-function: ease-out;
