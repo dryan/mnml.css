@@ -26,21 +26,9 @@
       resize: revert;
     }
 
-    *:where(:focus) {
+    *:where(:focus-visible) {
       outline: 2px solid rgb(var(--focus-ring-color));
       outline-offset: var(--focus-ring-offset, 2px);
-    }
-
-    @supports selector(:focus-visible) {
-      *:where(:focus) {
-        outline: unset;
-        outline-offset: unset;
-      }
-
-      *:where(:focus-visible) {
-        outline: 2px solid rgb(var(--focus-ring-color));
-        outline-offset: var(--focus-ring-offset, 2px);
-      }
     }
   }
 
@@ -61,7 +49,7 @@
     /*
      * a11y
      */
-    :where(.reader-only:not(:focus):not(:active), .skip-link) {
+    :where(.reader-only:not(:focus-visible):not(:active), .skip-link) {
       border: 0;
       clip: rect(0 0 0 0);
       clip-path: inset(50%);
@@ -78,7 +66,7 @@
       position: absolute;
       z-index: 1;
 
-      &:focus {
+      &:focus-visible {
         --link-color--hover: var(--skip-link-color);
         --focus-ring-color: var(--skip-link-bg);
         --focus-ring-offset: 0;
@@ -183,7 +171,7 @@
         color: var(--link-color--visited);
       }
 
-      &:where(:hover, :active, :focus) {
+      &:where(:hover, :active, :focus-visible) {
         color: var(--link-color--hover);
       }
     }
@@ -527,7 +515,7 @@
         width: 100%;
         will-change: box-shadow, background-color, border-color;
 
-        &:where(:focus) {
+        &:where(:focus-visible) {
           background-color: var(--input-bg--focus);
           border-color: var(--input-border-color--focus);
           box-shadow: 0 0 0 4px var(--input-focus-ring);
@@ -597,7 +585,7 @@
           }
         }
 
-        &:where(:hover, :focus) {
+        &:where(:hover, :focus-visible) {
           &::file-selector-button,
           &::-webkit-file-upload-button {
             --input-file-button-bg: var(--input-file-button-bg--hover);
@@ -696,7 +684,7 @@
       transition-property: color, background-color;
       will-change: color, background-color;
 
-      &:where(:hover, :active, :focus) {
+      &:where(:hover, :active, :focus-visible) {
         --button-bg: var(--button-bg--hover);
         --button-color: var(--button-color--hover);
         --button-border: var(--button-border--hover);
@@ -748,7 +736,7 @@
       }
 
       &.outline {
-        &:where(:not(:hover, :active, :focus)) {
+        &:where(:not(:hover, :active, :focus-visible)) {
           --button-bg: transparent;
           --button-border: var(--button-base);
           --button-color: var(--button-base);
