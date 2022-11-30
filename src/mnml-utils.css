@@ -1,0 +1,109 @@
+.text--left {
+  text-align: left;
+}
+.text--center {
+  text-align: center;
+}
+.text--right {
+  text-align: right;
+}
+.text--caps {
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+.text--italic {
+  font-style: italic;
+}
+.text--normal {
+  font-weight: normal;
+}
+.text--bold {
+  font-weight: bold;
+}
+.text--bolder {
+  font-weight: bolder;
+}
+.text--small {
+  font-size: 0.75rem;
+}
+.text--monospace {
+  font-family: var(--ui-font-monospace);
+}
+.text--nums {
+  font-variant: tabular-nums;
+}
+.text--no-wrap {
+  white-space: nowrap;
+}
+.mb-0 {
+  margin-block: 0;
+}
+.mb-1 {
+  margin-block: 1rem;
+}
+.mb-2 {
+  margin-block: 2rem;
+}
+.mb-auto {
+  margin-block: auto;
+}
+.mbs-0 {
+  margin-block-start: 0;
+}
+.mbs-1 {
+  margin-block-start: 1rem;
+}
+.mbs-2 {
+  margin-block-start: 2rem;
+}
+.mbs-auto {
+  margin-block-start: auto;
+}
+.mbe-0 {
+  margin-block-end: 0;
+}
+.mbe-1 {
+  margin-block-end: 1rem;
+}
+.mbe-2 {
+  margin-block-end: 2rem;
+}
+.mbe-auto {
+  margin-block-end: auto;
+}
+.mi-0 {
+  margin-inline: 0;
+}
+.mi-1 {
+  margin-inline: 1rem;
+}
+.mi-2 {
+  margin-inline: 2rem;
+}
+.mi-auto {
+  margin-inline: auto;
+}
+.mis-0 {
+  margin-inline-start: 0;
+}
+.mis-1 {
+  margin-inline-start: 1rem;
+}
+.mis-2 {
+  margin-inline-start: 2rem;
+}
+.mis-auto {
+  margin-inline-start: auto;
+}
+.mie-0 {
+  margin-inline-end: 0;
+}
+.mie-1 {
+  margin-inline-end: 1rem;
+}
+.mie-2 {
+  margin-inline-end: 2rem;
+}
+.mie-auto {
+  margin-inline-end: auto;
+}

@@ -15,15 +15,17 @@ const banner = `/*
 const newLine = Buffer.from("\n");
 
 interface BuildFilesOptions {
-  filename: string;
+  src: string;
+  filename?: string;
   withOpenColors?: boolean;
 }
 
-const buildFiles = ({ filename, withOpenColors }: BuildFilesOptions): void => {
+const buildFiles = ({ filename, src, withOpenColors }: BuildFilesOptions): void => {
+  if (!filename) filename = `${src}`;
   if (!fs.existsSync("./dist")) {
     fs.mkdirSync("./dist");
   }
-  let source = fs.readFileSync(`src/mnml.css`);
+  let source = fs.readFileSync(`src/${src}`);
   if (withOpenColors) {
     source = Buffer.concat([
       source,
@@ -60,5 +62,10 @@ const buildFiles = ({ filename, withOpenColors }: BuildFilesOptions): void => {
   fs.writeFileSync(path.join("dist", filename), code);
 };
 
-buildFiles({ filename: "mnml.css" });
-buildFiles({ filename: "mnml-plus-opencolor.css", withOpenColors: true });
+buildFiles({ src: "mnml.css", filename: "mnml.css" });
+buildFiles({
+  src: "mnml.css",
+  filename: "mnml-plus-opencolor.css",
+  withOpenColors: true,
+});
+buildFiles({ src: "mnml-utils.css" });
