@@ -49,7 +49,7 @@
     /*
      * a11y
      */
-    :where(.reader-only:not(:focus-visible):not(:active), .skip-link) {
+    :where(.reader-only, .skip-link):not(:focus-visible):not(:active) {
       border: 0;
       clip: rect(0 0 0 0);
       clip-path: inset(50%);
