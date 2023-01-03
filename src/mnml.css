@@ -113,6 +113,8 @@
       --link-color--hover: #228be6;
       --link-color--visited: #5f3dc4;
       --link-color: #1864ab;
+      --link-decoration: underline;
+      --link-decoration--hover: var(--link-decoration);
       --selection-bg: #ffd43b;
       --selection-color: #212529;
       --input-min-height: 56px;
@@ -157,7 +159,7 @@
     }
 
     :where(a) {
-      text-decoration: underline;
+      text-decoration: var(--link-decoration);
       transition-duration: var(--animation-timing);
       transition-property: color;
       transition-timing-function: ease-out;
@@ -173,6 +175,7 @@
 
       &:where(:hover, :active, :focus-visible) {
         color: var(--link-color--hover);
+        text-decoration: var(--link-decoration--hover);
       }
     }
 
