@@ -500,7 +500,11 @@
       }
 
       &
-        :where(input[type]:not([type="radio"]):not([type="checkbox"]), textarea, select) {
+        :where(
+          input[type]:not([type="radio"]):not([type="checkbox"]),
+          textarea,
+          select
+        ) {
         appearance: auto;
         background-clip: padding-box;
         background: var(--input-bg);
