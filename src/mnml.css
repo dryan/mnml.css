@@ -195,13 +195,13 @@
       font-weight: var(--headers-weight);
       margin-block-end: var(--spacing);
       margin-block-start: 0;
-      margin-inline: auto;
+      margin-inline: 0;
     }
 
     p {
       margin-block-end: var(--spacing);
       margin-block-start: 0;
-      margin-inline: auto;
+      margin-inline: 0;
     }
 
     h1 {
