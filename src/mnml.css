@@ -680,7 +680,9 @@
       color: var(--button-color);
       display: inline-flex;
       font-family: var(--button-font-family);
+      font-size: var(--button-font-size, 1rem);
       font-weight: var(--button-font-weight, bold);
+      gap: var(--button-gap, 0.5em);
       justify-content: center;
       min-height: 42px;
       padding: var(--button-padding-block) var(--button-padding-inline);
