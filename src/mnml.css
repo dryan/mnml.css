@@ -769,6 +769,11 @@
           --button-color: var(--button-color--disabled);
         }
       }
+
+      & svg {
+        height: 1em;
+        width: 1em;
+      }
     }
 
     form {
