@@ -738,13 +738,13 @@
         );
       }
 
-      &.hsl(0deg 0% 100%) {
+      &.white {
         --button-base: hsl(0deg 0% 100%);
         --button-base--hover: hsl(0deg 0% 90.2%);
         --button-color: hsl(210deg 10.3% 22.7%);
       }
 
-      &.hsl(0deg 0% 0%) {
+      &.black {
         --button-base: hsl(0deg 0% 0%);
         --button-base--hover: hsl(210deg 10.3% 22.7%);
         --button-color: hsl(0deg 0% 100%);
