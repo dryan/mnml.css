@@ -67,72 +67,72 @@ form {
   &.pink {
     --button-base: var(--oc-pink-9);
     --button-base--hover: var(--oc-pink-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.violet {
     --button-base: var(--oc-violet-9);
     --button-base--hover: var(--oc-violet-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.blue {
     --button-base: var(--oc-blue-9);
     --button-base--hover: var(--oc-blue-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.teal {
     --button-base: var(--oc-teal-9);
     --button-base--hover: var(--oc-teal-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.lime {
     --button-base: var(--oc-lime-9);
     --button-base--hover: var(--oc-lime-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.orange {
     --button-base: var(--oc-orange-9);
     --button-base--hover: var(--oc-orange-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.red {
     --button-base: var(--oc-red-9);
     --button-base--hover: var(--oc-red-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.grape {
     --button-base: var(--oc-grape-9);
     --button-base--hover: var(--oc-grape-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.indigo {
     --button-base: var(--oc-indigo-9);
     --button-base--hover: var(--oc-indigo-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.cyan {
     --button-base: var(--oc-cyan-9);
     --button-base--hover: var(--oc-cyan-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.green {
     --button-base: var(--oc-green-9);
     --button-base--hover: var(--oc-green-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 
   &.yellow {
     --button-base: var(--oc-yellow-9);
     --button-base--hover: var(--oc-yellow-8);
-    --button-color: white;
+    --button-color: hsl(0deg 0% 100%);
   }
 }
