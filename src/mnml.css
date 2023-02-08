@@ -758,6 +758,26 @@
         }
       }
 
+      &.inline {
+        background: none;
+        border: 0;
+        border-radius: 0;
+        color: var(--link-color);
+        display: inline;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        min-height: 0;
+        padding: 0;
+        text-align: inherit;
+        vertical-align: baseline;
+
+        &:where(:hover, :active, :focus-visible) {
+          color: var(--link-color--hover);
+        }
+      }
+
       &.rounded {
         --button-radius: 5rem;
       }
