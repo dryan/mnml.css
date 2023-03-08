@@ -4,7 +4,7 @@
  * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
  */
 
-@layer mnml, mnml.reset, mnml.baseline, mnml.layout, mnml.forms, mnml.a11y;
+@layer mnml, mnml.reset, mnml.baseline, mnml.layout, mnml.animation, mnml.forms, mnml.a11y;
 
 /*
  * Custom media queries
@@ -160,7 +160,7 @@
 
     :where(a) {
       text-decoration: var(--link-decoration);
-      transition-duration: var(--animation-timing);
+      transition-duration: var(--transition-duration);
       transition-property: color;
       transition-timing-function: ease-out;
       will-change: color;
@@ -310,20 +310,6 @@
     }
 
     /*
- * CSS property for animation timings that becomes 0 for folx who don't want animations
- */
-
-    :where(:root, :host) {
-      --animation-timing: 200ms;
-    }
-
-    @media screen and (prefers-reduced-motion: reduce), (update: slow) {
-      :where(:root, :host) {
-        --animation-timing: 0s;
-      }
-    }
-
-    /*
  * Set some base styles for elements
  */
 
@@ -365,6 +351,36 @@
     template,
     [hidden] {
       display: none;
+    }
+  }
+
+  @layer animation {
+    /*
+    * CSS property for animation timings that becomes 0 for folx who don't want animations
+    */
+
+    :where(:root, :host) {
+      --transition-duration: 200ms;
+      --transition-duration--slow: 400ms;
+      --transition-duration--fast: 100ms;
+
+      /* currently kept for backwards compatibility */
+      /* will be removed in a future major release */
+      --animation-timing: var(--transition-duration);
+
+      /* from https://joshcollinsworth.com/blog/great-transitions */
+      --bezier--sudden-end: cubic-bezier(0.9, 0.03, 0.69, 0.22);
+      --bezier--sudden-start: cubic-bezier(0.17, 0.84, 0.44, 1);
+      --bezier--smooth: cubic-bezier(0.62, 0.16, 0.13, 1.01);
+      --bezier--inertia: cubic-bezier(0.5, -0.53, 0.14, 1.23);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce), (update: slow) {
+      :where(:root, :host) {
+        --transition-duration: 0ms;
+        --transition-duration--slow: 0ms;
+        --transition-duration--fast: 0ms;
+      }
     }
   }
 
@@ -522,7 +538,7 @@
         min-height: var(--input-min-height);
         padding-block: var(--input-padding-block);
         padding-inline: var(--input-padding-inline);
-        transition-duration: var(--animation-timing);
+        transition-duration: var(--transition-duration);
         transition-property: box-shadow, background-color, border-color;
         transition-timing-function: ease-out;
         width: 100%;
@@ -586,7 +602,7 @@
           min-height: 100%;
           padding: 1rem;
           text-align: center;
-          transition-duration: var(--animation-timing);
+          transition-duration: var(--transition-duration);
           transition-property: background-color;
           will-change: background-color;
         }
@@ -695,7 +711,7 @@
       text-align: center;
       text-decoration: none;
       text-transform: var(--button-text-transform);
-      transition-duration: var(--animation-timing);
+      transition-duration: var(--transisition-timing);
       transition-property: color, background-color;
       will-change: color, background-color;
 
