@@ -401,10 +401,6 @@
     body > :where(header, main, footer, section),
     :where(.site-header, .site-main, .site-footer) {
       padding-block: var(--spacing);
-
-      & > .container {
-        padding-inline: 0;
-      }
     }
 
     body > header,
