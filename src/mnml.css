@@ -50,16 +50,15 @@
      * a11y
      */
     :where(.reader-only, .skip-link):not(:focus-visible):not(:active) {
+      word-wrap: normal !important;
+      block-size: 1px;
       border: 0;
-      clip: rect(0 0 0 0);
       clip-path: inset(50%);
-      height: 1px;
+      inline-size: 1px;
       margin: -1px;
       overflow: hidden;
       position: absolute;
       white-space: nowrap;
-      width: 1px;
-      word-wrap: normal !important;
     }
 
     .skip-link {
@@ -70,11 +69,11 @@
         --link-color--hover: var(--skip-link-color);
         --focus-ring-color: transparent;
         --focus-ring-offset: 0;
-
         background-color: var(--skip-link-bg);
-        left: 5px;
+        inset-block-start: 5px;
+        inset-inline-start: 5px;
         padding: 1rem;
-        top: 5px;
+
         z-index: 100000;
       }
     }
@@ -86,14 +85,14 @@
      */
     :where(:root, :host) {
       /* from https://systemfontstack.com */
-      --ui-font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, avenir next,
-        avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial,
-        sans-serif;
+      --ui-font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+        avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto,
+        noto, arial, sans-serif;
       --ui-font-serif: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
-        Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
-        Segoe UI Emoji, Segoe UI Symbol;
-      --ui-font-monospace: ui-monospace, Menlo, Consolas, Monaco, Liberation Mono,
-        Lucida Console, monospace;
+        Times New Roman, Droid Serif, Times, Source Serif Pro, serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+      --ui-font-monospace: ui-monospace, Menlo, Consolas, Monaco,
+        Liberation Mono, Lucida Console, monospace;
       --body-bg: hsl(0deg 0% 100%);
       --body-color: hsl(0deg 0% 0%);
       --button-base--default: hsl(0deg 0% 50%);
@@ -117,7 +116,7 @@
       --link-decoration--hover: var(--link-decoration);
       --selection-bg: hsl(47deg 100% 62%);
       --selection-color: hsl(210deg 11% 15%);
-      --input-min-height: 56px;
+      --input-min-block-size: 56px;
       --skip-link-color: hsl(210deg 11% 15%);
       --skip-link-bg: hsl(47deg 100% 62%);
 
@@ -148,8 +147,8 @@
     }
 
     html {
-      line-height: 1.15;
       text-size-adjust: none; /* https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/ */
+      line-height: 1.15;
     }
 
     body {
@@ -292,11 +291,11 @@
     }
 
     sub {
-      bottom: -0.25em;
+      inset-block-end: -0.25em;
     }
 
     sup {
-      top: -0.5em;
+      inset-block-start: -0.5em;
     }
 
     :where(button, input, optgroup, select, textarea) {
@@ -315,14 +314,14 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
-      min-height: 100dvh;
+      min-block-size: 100vh;
+      min-block-size: 100dvh;
     }
 
     img {
       border-style: none;
-      height: auto;
-      max-width: 100%;
+      inline-size: auto;
+      max-inline-size: 100%;
     }
 
     table {
@@ -334,8 +333,8 @@
     }
 
     hr {
+      block-size: 0;
       box-sizing: content-box;
-      height: 0;
       overflow: visible;
     }
 
@@ -394,7 +393,10 @@
 
     .container {
       margin-inline: auto;
-      max-width: var(--container-max-inline-size, var(--container-max-width, 1200px));
+      max-inline-size: var(
+        --container-max-inline-size,
+        var(--container-max-width, 1200px)
+      );
       padding-inline: var(--spacing);
     }
 
@@ -408,8 +410,8 @@
       align-items: center;
 
       &.sticky {
+        inset-block-start: 0;
         position: sticky;
-        top: 0;
         z-index: 10;
       }
     }
@@ -434,13 +436,19 @@
     .grid {
       grid-template-columns: repeat(
         auto-fit,
-        minmax(var(--grid-column-min-width, 200px), 1fr)
+        minmax(
+          var(
+            --grid-column-min-inline-size,
+            var(--grid-column-min-width, 200px)
+          ),
+          1fr
+        )
       );
     }
 
     .grid--vertical {
       grid-auto-flow: row;
-      grid-auto-rows: var(--grid-row-height, auto);
+      grid-auto-rows: var(--grid-row-block-size, var(--grid-row-height, auto));
       grid-template-columns: unset;
     }
   }
@@ -469,7 +477,10 @@
         --theme-primary--contrast-color,
         hsl(0deg 0% 100%)
       );
-      --input-file-button-bg--hover: var(--theme-primary--hover, hsl(240deg 100% 50%));
+      --input-file-button-bg--hover: var(
+        --theme-primary--hover,
+        hsl(240deg 100% 50%)
+      );
       --input-file-button-color--hover: var(
         --theme-primary--contrast-color,
         hsl(0deg 0% 100%)
@@ -531,13 +542,13 @@
         color: var(--input-text-color);
         display: block;
         font-size: var(--input-text-size);
-        min-height: var(--input-min-height);
+        inline-size: 100%;
+        min-block-size: var(--input-min-height, var(--input-min-block-size));
         padding-block: var(--input-padding-block);
         padding-inline: var(--input-padding-inline);
         transition-duration: var(--transition-duration);
         transition-property: box-shadow, background-color, border-color;
         transition-timing-function: ease-out;
-        width: 100%;
         will-change: box-shadow, background-color, border-color;
 
         &:where(:focus-visible) {
@@ -549,8 +560,8 @@
         }
 
         &:where([disabled], [readonly]) {
-          border-color: var(--input-border-color--disabled);
           background-color: var(--input-bg--disabled);
+          border-color: var(--input-border-color--disabled);
           color: var(--input-text-color--disabled);
           opacity: 0.8;
         }
@@ -593,9 +604,9 @@
           font-weight: normal;
           justify-content: center;
           margin-block: -1rem;
-          margin-inline-start: -1rem;
           margin-inline-end: var(--spacing);
-          min-height: 100%;
+          margin-inline-start: -1rem;
+          min-block-size: 100%;
           padding: 1rem;
           text-align: center;
           transition-duration: var(--transition-duration);
@@ -620,11 +631,11 @@
       }
 
       & select {
+        word-wrap: normal;
         -webkit-appearance: none;
         appearance: none;
         padding-block: var(--input-padding-block);
         padding-inline: var(--input-padding-inline);
-        word-wrap: normal;
 
         &:where(:not([multiple])) {
           background-image: var(--select-arrow);
@@ -642,7 +653,7 @@
             align-items: center;
             display: flex;
             margin: 0.25rem -0.5rem;
-            min-height: 1.5em;
+            min-block-size: 1.5em;
             padding: 0 0.5rem;
           }
         }
@@ -690,19 +701,19 @@
       --button-color--hover: var(--button-color--default);
       --button-border: var(--button-base);
       --button-border--hover: var(--button-base--hover);
-
       align-items: center;
       background: var(--button-bg);
       border: 2px solid var(--button-border);
       border-radius: var(--button-radius);
       color: var(--button-color);
+
       display: inline-flex;
       font-family: var(--button-font-family);
       font-size: var(--button-font-size, 1rem);
       font-weight: var(--button-font-weight, bold);
       gap: var(--button-gap, 0.5em);
       justify-content: center;
-      min-height: 42px;
+      min-block-size: 42px;
       padding: var(--button-padding-block) var(--button-padding-inline);
       text-align: center;
       text-decoration: none;
@@ -780,7 +791,7 @@
         font-size: inherit;
         font-weight: inherit;
         line-height: inherit;
-        min-height: 0;
+        min-block-size: 0;
         padding: 0;
         text-align: inherit;
         vertical-align: baseline;
@@ -809,14 +820,14 @@
       }
 
       & svg {
-        height: 1em;
-        width: 1em;
+        block-size: 1em;
+        inline-size: 1em;
       }
     }
 
     form {
       & :where(button, .button) {
-        min-height: var(--input-min-height);
+        min-block-size: var(--input-min-height, var(--input-min-block-size));
       }
     }
   }
