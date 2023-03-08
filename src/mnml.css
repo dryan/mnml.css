@@ -389,6 +389,8 @@
      */
     :where(:root, :host) {
       --spacing: 1rem;
+      --spacing--double: calc(var(--spacing) * 2);
+      --spacing--half: calc(var(--spacing) / 2);
     }
 
     .container {
