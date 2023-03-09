@@ -734,11 +734,6 @@
         color: var(--button-color);
       }
 
-      &.no-bg {
-        background-color: transparent;
-        border-color: transparent;
-      }
-
       &.primary {
         --button-base: var(--theme-primary, --button-base--default);
         --button-base--hover: var(
@@ -781,6 +776,14 @@
           --button-border: var(--button-base);
           --button-color: var(--button-base);
         }
+      }
+
+      &.no-bg {
+        --button-color: var(--button-base);
+        --button-color--hover: var(--button-base--hover);
+
+        background-color: transparent;
+        border-color: transparent;
       }
 
       &.inline {
