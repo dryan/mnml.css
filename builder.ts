@@ -4,7 +4,11 @@ import * as fs from "fs";
 import * as path from "path";
 import * as config from "./package.json";
 
-const targetBrowsers = browserslist(["defaults", "not ie 11", "not op_mini all"]);
+const targetBrowsers = browserslist([
+  "defaults",
+  "not ie 11",
+  "not op_mini all",
+]);
 
 const banner = `/*
  * 🎨 mnml.css ${config.version}
@@ -20,7 +24,11 @@ interface BuildFilesOptions {
   withOpenColors?: boolean;
 }
 
-const buildFiles = ({ filename, src, withOpenColors }: BuildFilesOptions): void => {
+const buildFiles = ({
+  filename,
+  src,
+  withOpenColors,
+}: BuildFilesOptions): void => {
   if (!filename) filename = `${src}`;
   if (!fs.existsSync("./dist")) {
     fs.mkdirSync("./dist");
@@ -35,7 +43,9 @@ const buildFiles = ({ filename, src, withOpenColors }: BuildFilesOptions): void 
     source = Buffer.concat([
       source,
       newLine,
-      fs.readFileSync(path.join("node_modules", "open-color", "open-color.css")),
+      fs.readFileSync(
+        path.join("node_modules", "open-color", "open-color.css")
+      ),
     ]);
   }
   let { code, map } = css.transform({

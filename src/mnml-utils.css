@@ -35,7 +35,7 @@
 .text--no-wrap {
   white-space: nowrap;
 }
-.text--balance: {
+.text--balance {
   text-wrap: balance;
 }
 .mb-0 {

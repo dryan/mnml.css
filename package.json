@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "prebuild": "npm run clean",
-    "build": "npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.ts",
+    "build": "npx browserslist@latest --update-db && npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.ts",
     "clean": "rm -rf dist/*",
     "docs": "npm run build && cp ./dist/mnml* ./docs/assets/.",
     "watch": "nodemon --exec npm run build",
