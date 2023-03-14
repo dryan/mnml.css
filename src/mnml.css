@@ -720,7 +720,7 @@
       text-align: center;
       text-decoration: none;
       text-transform: var(--button-text-transform);
-      transition-duration: var(--transisition-timing);
+      transition-duration: var(--transition-duration);
       transition-property: color, background-color;
       will-change: color, background-color;
 
