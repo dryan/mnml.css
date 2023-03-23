@@ -494,7 +494,7 @@
       --input-placeholder-color: hsl(210deg 7% 56%);
       --help-text-opacity: 0.8;
       --required-color: hsl(0deg 65% 48%);
-      --select-arrow: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="%2hsl(210deg 10.3% 22.7%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+      --select-arrow: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(210deg 10.3% 22.7%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
 
       & fieldset {
         & legend {
@@ -685,7 +685,7 @@
           --input-text-color--disabled: hsl(210deg 14% 83.1%);
           --input-text-color--focus: hsl(0deg 0% 100%);
           --required-color: hsl(0deg 100% 76.5%);
-          --select-arrow: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+          --select-arrow: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(0deg 0% 100%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
         }
       }
     }
