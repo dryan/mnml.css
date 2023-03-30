@@ -17,7 +17,9 @@
     /*
     * Reset browser defaults
     */
-    *:where(:not(iframe, canvas, img, svg, video, dialog):not(svg *)) {
+    *:where(
+        :not(iframe, canvas, img, svg, video, dialog, [popover]):not(svg *)
+      ) {
       all: unset;
       cursor: revert;
       display: revert;
