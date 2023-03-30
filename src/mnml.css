@@ -108,6 +108,7 @@
       --button-padding-block: 0.5rem;
       --button-padding-inline: 1rem;
       --button-radius: 0.25rem;
+      --button-min-block-size: 56px;
       --button-text-transform: none;
       --focus-ring-color: 208.4deg 76.9% 47.5%;
       --headers-weight: bolder;
@@ -705,19 +706,19 @@
       --button-color--hover: var(--button-color--default);
       --button-border: var(--button-base);
       --button-border--hover: var(--button-base--hover);
+
       align-items: center;
       background: var(--button-bg);
       border: 2px solid var(--button-border);
       border-radius: var(--button-radius);
       color: var(--button-color);
-
       display: inline-flex;
       font-family: var(--button-font-family);
       font-size: var(--button-font-size, 1rem);
       font-weight: var(--button-font-weight, bold);
       gap: var(--button-gap, 0.5em);
       justify-content: center;
-      min-block-size: 42px;
+      min-block-size: var(--button-min-block-size);
       padding: var(--button-padding-block) var(--button-padding-inline);
       text-align: center;
       text-decoration: none;
