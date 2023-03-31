@@ -1,0 +1,143 @@
+/* Buttons */
+
+:where(button, .button) {
+  --button-base: var(--button-base--default);
+  --button-base--hover: var(--button-base--default--hover);
+  --button-bg: var(--button-base);
+  --button-bg--hover: var(--button-base--hover);
+  --button-color: var(--button-color--default);
+  --button-color--hover: var(--button-color--default);
+  --button-border: var(--button-base);
+  --button-border--hover: var(--button-base--hover);
+
+  align-items: center;
+  background: var(--button-bg);
+  border: 2px solid var(--button-border);
+  border-radius: var(--button-radius);
+  color: var(--button-color);
+  display: inline-flex;
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size, 1rem);
+  font-weight: var(--button-font-weight, bold);
+  gap: var(--button-gap, 0.5em);
+  justify-content: center;
+  min-block-size: var(--button-min-block-size);
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  text-align: center;
+  text-decoration: none;
+  text-transform: var(--button-text-transform);
+  transition-duration: var(--transition-duration);
+  transition-property: color, background-color;
+  will-change: color, background-color;
+
+  &:where(:hover, :active, :focus-visible) {
+    --button-bg: var(--button-bg--hover);
+    --button-color: var(--button-color--hover);
+    --button-border: var(--button-border--hover);
+  }
+
+  &:where(:link) {
+    color: var(--button-color);
+  }
+
+  &.primary {
+    --button-base: var(--theme-primary, --button-base--default);
+    --button-base--hover: var(
+      --theme-primary--hover,
+      var(--theme-primary, --button-base--default)
+    );
+    --button-color: var(
+      --theme-primary--contrast-color,
+      var(--button-color--default)
+    );
+  }
+
+  &.secondary {
+    --button-base: var(--theme-secondary, --button-base--default);
+    --button-base--hover: var(
+      --theme-secondary--hover,
+      var(--theme-secondary, --button-base--default)
+    );
+    --button-color: var(
+      --theme-secondary--contrast-color,
+      var(--button-color--default)
+    );
+  }
+
+  &.white {
+    --button-base: hsl(0deg 0% 100%);
+    --button-base--hover: hsl(0deg 0% 90.2%);
+    --button-color: hsl(210deg 10.3% 22.7%);
+  }
+
+  &.black {
+    --button-base: hsl(0deg 0% 0%);
+    --button-base--hover: hsl(210deg 10.3% 22.7%);
+    --button-color: hsl(0deg 0% 100%);
+  }
+
+  &.outline {
+    &:where(:not(:hover, :active, :focus-visible)) {
+      --button-bg: transparent;
+      --button-border: var(--button-base);
+      --button-color: var(--button-base);
+    }
+  }
+
+  &.no-bg {
+    --button-color: var(--button-base);
+    --button-color--hover: var(--button-base--hover);
+
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &.inline {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    color: var(--link-color);
+    display: inline;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    min-block-size: 0;
+    padding: 0;
+    text-align: inherit;
+    vertical-align: baseline;
+
+    &:where(:hover, :active, :focus-visible) {
+      color: var(--link-color--hover);
+    }
+  }
+
+  &.rounded {
+    --button-radius: 5rem;
+  }
+
+  &:is(:disabled, [disabled]) {
+    --button-base: var(--button-base--disabled);
+    --button-color: var(--button-color--disabled);
+    --button-border: var(--button-border--disabled);
+
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &.outline {
+      --button-bg: var(--button-base);
+      --button-color: var(--button-color--disabled);
+    }
+  }
+
+  & svg {
+    block-size: 1em;
+    inline-size: 1em;
+  }
+}
+
+form {
+  & :where(button, .button) {
+    min-block-size: var(--input-min-height, var(--input-min-block-size));
+  }
+}

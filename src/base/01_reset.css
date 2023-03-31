@@ -1,0 +1,15 @@
+/* Reset browser defaults */
+
+*:where(:not(iframe, canvas, img, svg, video, dialog, [popover]):not(svg *)) {
+  all: unset;
+  cursor: revert;
+  display: revert;
+  list-style-type: revert;
+  outline: revert;
+  resize: revert;
+}
+
+*:where(:focus-visible) {
+  outline: 2px solid var(--focus-ring--color, hsl(--focus-ring-color));
+  outline-offset: var(--focus-ring--offset, var(--focus-ring-offset, 2px));
+}

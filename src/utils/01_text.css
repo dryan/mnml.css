@@ -1,0 +1,52 @@
+.text--left {
+  text-align: left;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--right {
+  text-align: right;
+}
+
+.text--caps {
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+.text--italic {
+  font-style: italic;
+}
+
+.text--normal {
+  font-weight: normal;
+}
+
+.text--bold {
+  font-weight: bold;
+}
+
+.text--bolder {
+  font-weight: bolder;
+}
+
+.text--small {
+  font-size: 0.75rem;
+}
+
+.text--monospace {
+  font-family: var(--ui-font-monospace);
+}
+
+.text--nums {
+  font-variant: tabular-nums;
+}
+
+.text--no-wrap {
+  white-space: nowrap;
+}
+
+.text--balance {
+  text-wrap: balance;
+}

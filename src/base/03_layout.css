@@ -1,0 +1,65 @@
+/* Layout */
+
+:where(:root, :host) {
+  --spacing: 1rem;
+  --spacing--double: calc(var(--spacing) * 2);
+  --spacing--half: calc(var(--spacing) / 2);
+}
+
+.container {
+  margin-inline: auto;
+  max-inline-size: var(
+    --container-max-inline-size,
+    var(--container-max-width, 1200px)
+  );
+  padding-inline: var(--spacing);
+}
+
+body > :where(header, main, footer, section),
+:where(.site-header, .site-main, .site-footer) {
+  padding-block: var(--spacing);
+}
+
+body > header,
+.site-header {
+  align-items: center;
+
+  &.sticky {
+    inset-block-start: 0;
+    position: sticky;
+    z-index: 10;
+  }
+}
+
+body > footer,
+.site-footer {
+  text-align: center;
+
+  &.sticky {
+    position: sticky;
+    top: 100%;
+    z-index: 10;
+  }
+}
+
+.grid,
+.grid--vertical {
+  display: grid;
+  gap: var(--grid-spacing, var(--spacing));
+}
+
+.grid {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      var(--grid-column-min-inline-size, var(--grid-column-min-width, 200px)),
+      1fr
+    )
+  );
+}
+
+.grid--vertical {
+  grid-auto-flow: row;
+  grid-auto-rows: var(--grid-row-block-size, var(--grid-row-height, auto));
+  grid-template-columns: unset;
+}
