@@ -259,10 +259,7 @@ ${css}`.trim();
 (async () => {
   const minify = !process.argv.includes("--no-minify");
   const mnml = await generateMnml(minify);
-  if (!fs.existsSync("dist")) {
-    fs.mkdirSync("dist");
-  }
-  fs.writeFileSync("dist/mnml.css", mnml);
+  fs.writeFileSync("mnml.css", mnml);
   const mnmlUtils = await generateMnmlUtils(minify);
-  fs.writeFileSync("dist/mnml-utils.css", mnmlUtils);
+  fs.writeFileSync("mnml-utils.css", mnmlUtils);
 })();

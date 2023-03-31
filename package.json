@@ -2,7 +2,7 @@
   "name": "@dryan-llc/mnml.css",
   "version": "5.0.0",
   "description": "",
-  "main": "dist/mnml.css",
+  "main": "mnml.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "prebuild": "npm run clean",
@@ -28,7 +28,7 @@
     "prettier-plugin-css-order": "^1.3.0"
   },
   "files": [
-    "dist/mnml*.css"
+    "mnml*.css"
   ],
   "prettier": {
     "order": "alphabetical"
