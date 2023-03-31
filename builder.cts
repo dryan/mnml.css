@@ -185,9 +185,9 @@ ${layerDeclaration}
   ${Object.entries(layers)
     .map(([layerName, layer]) => {
       return `
-  @layer mnml.${layerName} {
+  @layer ${layerName} {
 ${layer.toString().trim()}
-   } /* @layer mnml.${layerName} */`.trim();
+   } /* @layer ${layerName} */`.trim();
     })
     .join("\n\n")}
 }
