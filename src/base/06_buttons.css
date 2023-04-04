@@ -85,7 +85,10 @@
       :where(:root, :host):not([data-theme~="light"]) & {
         --button-base: hsl(0deg 0% 100%);
         --button-base--hover: hsl(0deg 0% 90.2%);
-        --button-color: hsl(210deg 10.3% 22.7%);
+
+        &:not(.outline:where(:not(:hover, :active, :focus-visible))) {
+          --button-color: hsl(210deg 10.3% 22.7%);
+        }
       }
     }
   }
