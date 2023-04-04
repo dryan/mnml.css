@@ -76,6 +76,20 @@
     --button-color: hsl(0deg 0% 100%);
   }
 
+  &.theme-contrasting {
+    --button-base: hsl(0deg 0% 100%);
+    --button-base--hover: hsl(0deg 0% 90.2%);
+    --button-color: hsl(210deg 10.3% 22.7%);
+
+    @media (prefers-color-scheme: dark) {
+      :where(:root, :host):not([data-theme~="light"]) & {
+        --button-base: hsl(0deg 0% 0%);
+        --button-base--hover: hsl(210deg 10.3% 22.7%);
+        --button-color: hsl(0deg 0% 100%);
+      }
+    }
+  }
+
   &.outline {
     &:where(:not(:hover, :active, :focus-visible)) {
       --button-bg: transparent;
