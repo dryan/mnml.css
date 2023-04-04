@@ -36,7 +36,7 @@ ul[class] {
   --button-radius: 0.25rem;
   --button-min-block-size: 56px;
   --button-text-transform: none;
-  --focus-ring-color: 208.4deg 76.9% 47.5%;
+  --focus-ring--color: hsl(208.4deg 76.9% 47.5%);
   --headers-weight: bolder;
   --link-color--hover: hsl(208deg 80% 52%);
   --link-color--visited: hsl(255deg 53% 50%);

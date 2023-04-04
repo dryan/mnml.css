@@ -10,6 +10,6 @@
 }
 
 *:where(:focus-visible) {
-  outline: 2px solid var(--focus-ring--color, hsl(--focus-ring-color));
+  outline: 2px solid var(--focus-ring--color, hsl(var(--focus-ring-color)));
   outline-offset: var(--focus-ring--offset, var(--focus-ring-offset, 2px));
 }
