@@ -93,22 +93,22 @@ const generateSupportMatrix = (): string => {
     }
   );
 
-  const longestBrowserName = Object.keys(supportedBrowserVersions).reduce(
-    (acc, browserName) => {
+  const longestBrowserName = Math.max(
+    Object.keys(supportedBrowserVersions).reduce((acc, browserName) => {
       return (browserNames[browserName] ?? browserName).length > acc
         ? (browserNames[browserName] ?? browserName).length
         : acc;
-    },
-    0
+    }, 0),
+    "Browser".length
   );
 
-  const longestBrowserVersions = Object.values(supportedBrowserVersions).reduce(
-    (acc, browserVersions) => {
+  const longestBrowserVersions = Math.max(
+    Object.values(supportedBrowserVersions).reduce((acc, browserVersions) => {
       return browserVersions.join("; ").length > acc
         ? browserVersions.join("; ").length
         : acc;
-    },
-    0
+    }, 0),
+    "Supported Versions".length
   );
 
   const tableHeader = `| ${"Browser".padEnd(
