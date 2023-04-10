@@ -28,10 +28,7 @@ form {
     --theme-primary--contrast-color,
     hsl(0deg 0% 100%)
   );
-  --input-focus-ring-opacity: 0.5;
-  --input-focus-ring: hsl(
-    var(--focus-ring-color) / var(--input-focus-ring-opacity)
-  );
+  --input-focus-ring: hsl(208.4deg 76.9% 47.5% / 50%);
   --input-placeholder-color: hsl(210deg 7% 56%);
   --help-text-opacity: 0.8;
   --required-color: hsl(0deg 65% 48%);
