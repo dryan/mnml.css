@@ -83,7 +83,7 @@ form {
     display: block;
     font-size: var(--input-text-size);
     inline-size: 100%;
-    min-block-size: var(--input-min-height, var(--input-min-block-size));
+    min-block-size: var(--input-min-block-size, var(--input-min-height));
     padding-block: var(--input-padding-block);
     padding-inline: var(--input-padding-inline);
     transition-duration: var(--transition-duration);
