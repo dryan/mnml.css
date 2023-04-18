@@ -2,6 +2,10 @@
   padding-block: 0;
 }
 
+.pb-half {
+  padding-block: 0.5rem;
+}
+
 .pb-1 {
   padding-block: 1rem;
 }
@@ -12,6 +16,10 @@
 
 .pbs-0 {
   padding-block-start: 0;
+}
+
+.pbs-half {
+  padding-block-start: 0.5rem;
 }
 
 .pbs-1 {
@@ -26,6 +34,10 @@
   padding-block-end: 0;
 }
 
+.pbe-half {
+  padding-block-end: 0.5rem;
+}
+
 .pbe-1 {
   padding-block-end: 1rem;
 }
@@ -36,6 +48,10 @@
 
 .pi-0 {
   padding-inline: 0;
+}
+
+.pi-half {
+  padding-inline: 0.5rem;
 }
 
 .pi-1 {
@@ -50,6 +66,10 @@
   padding-inline-start: 0;
 }
 
+.pis-half {
+  padding-inline-start: 0.5rem;
+}
+
 .pis-1 {
   padding-inline-start: 1rem;
 }
@@ -60,6 +80,10 @@
 
 .pie-0 {
   padding-inline-end: 0;
+}
+
+.pie-half {
+  padding-inline-end: 0.5rem;
 }
 
 .pie-1 {
