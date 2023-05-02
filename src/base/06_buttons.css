@@ -86,7 +86,11 @@
         --button-base: hsl(0deg 0% 100%);
         --button-base--hover: hsl(0deg 0% 90.2%);
 
-        &:not(.outline:where(:not(:hover, :active, :focus-visible))) {
+        &:not(
+            :where(.outline, [data-variant~="outline"]):where(
+                :not(:hover, :active, :focus-visible)
+              )
+          ) {
           --button-color: hsl(210deg 10.3% 22.7%);
         }
       }
@@ -141,7 +145,7 @@
     cursor: not-allowed;
     pointer-events: none;
 
-    &.outline {
+    &:where(.outline, [data-variant~="outline"]) {
       --button-bg: var(--button-base);
       --button-color: var(--button-color--disabled);
     }
