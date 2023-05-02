@@ -40,7 +40,7 @@
     color: var(--button-color);
   }
 
-  &.primary {
+  &:where(.primary, [data-color="primary"]) {
     --button-base: var(--theme-primary, --button-base--default);
     --button-base--hover: var(
       --theme-primary--hover,
@@ -52,7 +52,7 @@
     );
   }
 
-  &.secondary {
+  &:where(.secondary, [data-color="secondary"]) {
     --button-base: var(--theme-secondary, --button-base--default);
     --button-base--hover: var(
       --theme-secondary--hover,
@@ -64,19 +64,19 @@
     );
   }
 
-  &.white {
+  &:where(.white, [data-color="white"]) {
     --button-base: hsl(0deg 0% 100%);
     --button-base--hover: hsl(0deg 0% 90.2%);
     --button-color: hsl(210deg 10.3% 22.7%);
   }
 
-  &.black {
+  &:where(.black, [data-color="black"]) {
     --button-base: hsl(0deg 0% 0%);
     --button-base--hover: hsl(210deg 10.3% 22.7%);
     --button-color: hsl(0deg 0% 100%);
   }
 
-  &.theme-contrasting {
+  &:where(.theme-contrasting, [data-color="theme-contrasting"]) {
     --button-base: hsl(0deg 0% 0%);
     --button-base--hover: hsl(210deg 10.3% 22.7%);
     --button-color: hsl(0deg 0% 100%);
@@ -93,7 +93,7 @@
     }
   }
 
-  &.outline {
+  &:where(.outline, [data-variant~="outline"]) {
     &:where(:not(:hover, :active, :focus-visible)) {
       --button-bg: transparent;
       --button-border: var(--button-base);
@@ -101,7 +101,7 @@
     }
   }
 
-  &.no-bg {
+  &:where(.no-bg, [data-variant~="no-bg"]) {
     --button-color: var(--button-base);
     --button-color--hover: var(--button-base--hover);
 
@@ -109,7 +109,7 @@
     border-color: transparent;
   }
 
-  &.inline {
+  &:where(.inline, [data-variant~="inline"]) {
     background: none;
     border: 0;
     border-radius: 0;
@@ -129,7 +129,7 @@
     }
   }
 
-  &.rounded {
+  &:where(.rounded, [data-variant~="rounded"]) {
     --button-radius: 5rem;
   }
 
