@@ -105,6 +105,10 @@ body {
     color: var(--link-color--hover);
     text-decoration: var(--link-decoration--hover);
   }
+
+  * {
+    color: inherit;
+  }
 }
 
 :where(hr) {
