@@ -37,7 +37,16 @@
   font-size: 0.75rem;
 }
 
-.text--monospace {
+.text--sans {
+  font-family: var(--ui-font-sans);
+}
+
+.text--serif {
+  font-family: var(--ui-font-serif);
+}
+
+.text--monospace,
+.text--mono {
   font-family: var(--ui-font-monospace);
 }
 
