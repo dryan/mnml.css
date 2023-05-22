@@ -4,6 +4,7 @@
   --spacing: 1rem;
   --spacing--double: calc(var(--spacing) * 2);
   --spacing--half: calc(var(--spacing) / 2);
+  --container-padding: var(--spacing);
 }
 
 .container {
@@ -12,7 +13,29 @@
     --container-max-inline-size,
     var(--container-max-width, 1200px)
   );
-  padding-inline: var(--spacing);
+  padding-inline: var(--container-padding);
+}
+
+/* https://css-tricks.com/full-bleed/ */
+.container--grid {
+  display: grid;
+  grid-template-columns:
+    1fr
+    calc(
+      min(
+          var(--container-max-inline-size, var(--container-max-width, 1200px)),
+          100%
+        ) - (2 * var(--container-padding))
+    )
+    1fr;
+}
+
+.container--grid > * {
+  grid-column: 2;
+}
+
+.container--grid .full-bleed {
+  grid-column: 1 / -1;
 }
 
 body > :where(header, main, footer, section),
