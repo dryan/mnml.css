@@ -61,3 +61,7 @@
 .text--balance {
   text-wrap: balance;
 }
+
+.text--underline {
+  text-decoration: underline;
+}
