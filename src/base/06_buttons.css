@@ -81,17 +81,27 @@
     --button-base--hover: hsl(210deg 10.3% 22.7%);
     --button-color: hsl(0deg 0% 100%);
 
+    &:where(.no-bg, [data-variant~="no-bg"]) {
+      --button-color: var(--button-base);
+      --button-color--hover: var(--button-base--hover);
+    }
+
     @media (prefers-color-scheme: dark) {
       :where(:root, :host):not([data-theme~="light"]) & {
         --button-base: hsl(0deg 0% 100%);
         --button-base--hover: hsl(0deg 0% 90.2%);
 
         &:not(
-            :where(.outline, [data-variant~="outline"]):where(
+            :where(.outline, [data-variant~="outline"], ):where(
                 :not(:hover, :active, :focus-visible)
               )
           ) {
           --button-color: hsl(210deg 10.3% 22.7%);
+        }
+
+        &:where(.no-bg, [data-variant~="no-bg"]) {
+          --button-color: var(--button-base);
+          --button-color--hover: var(--button-base--hover);
         }
       }
     }
