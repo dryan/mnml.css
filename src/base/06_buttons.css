@@ -30,10 +30,18 @@
   transition-property: color, background-color;
   will-change: color, background-color;
 
-  &:where(:hover, :active, :focus-visible) {
+  &:where(:focus-visible) {
     --button-bg: var(--button-bg--hover);
     --button-color: var(--button-color--hover);
     --button-border: var(--button-border--hover);
+  }
+
+  @media (pointer: fine) and (hover: hover) {
+    &:where(:hover, :active) {
+      --button-bg: var(--button-bg--hover);
+      --button-color: var(--button-color--hover);
+      --button-border: var(--button-border--hover);
+    }
   }
 
   &:where(:link) {
@@ -95,12 +103,16 @@
           --button-color: hsl(210deg 10.3% 22.7%);
         }
 
-        &:where(.outline, [data-variant~="outline"]):where(
-            :hover,
-            :active,
-            :focus-visible
-          ) {
+        &:where(.outline, [data-variant~="outline"]):where(:focus-visible) {
           --button-color: hsl(210deg 10.3% 22.7%);
+        }
+
+        &:where(.outline, [data-variant~="outline"]) {
+          @media (pointer: fine) and (hover: hover) {
+            &:where(:hover, :active) {
+              --button-color: hsl(210deg 10.3% 22.7%);
+            }
+          }
         }
 
         &:where(.no-bg, [data-variant~="no-bg"]) {
@@ -142,8 +154,14 @@
     text-align: inherit;
     vertical-align: baseline;
 
-    &:where(:hover, :active, :focus-visible) {
+    &:where(:focus-visible) {
       color: var(--link-color--hover);
+    }
+
+    @media (pointer: fine) and (hover: hover) {
+      &:where(:hover, :active) {
+        color: var(--link-color--hover);
+      }
     }
   }
 
