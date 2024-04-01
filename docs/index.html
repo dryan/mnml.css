@@ -9,57 +9,146 @@
       name="description"
       content="A minimal, configurable CSS design system"
     />
-    <meta property="og:image" content="https://mnmlcss.org/assets/share-image.png" />
+    <meta
+      property="og:image"
+      content="https://mnmlcss.org/assets/share-image.png"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="/assets/mnml-plus-opencolor.css" />
-    <link rel="stylesheet" href="/assets/docs.css" />
+    <link rel="stylesheet" href="/assets/mnml.css" />
+    <link rel="stylesheet" href="/assets/mnml-utils.css" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+    <style>
+      :root {
+        --shadow-color: 220 3% 15%;
+        --shadow-strength: 1%;
+        --fa-primary-color: var(--mnml--theme--primary);
+        --fa-primary-opacity: 1;
+        --fa-secondary-color: charcoal;
+        --fa-secondary-opacity: 1;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --shadow-color: 220 40% 2%;
+          --shadow-strength: 10%;
+          --fa-secondary-color: white;
+          --fa-secondary-opacity: 0.8;
+        }
+      }
+
+      body > header {
+        background-color: color-mix(
+          in oklch,
+          var(--mnml--body--background-color),
+          white 5%
+        );
+        box-shadow: 0 -1px 3px 0 hsl(var(--shadow-color) /
+                calc(var(--shadow-strength) + 2%)),
+          0 1px 2px -5px hsl(var(--shadow-color) /
+                calc(var(--shadow-strength) + 2%)),
+          0 2px 5px -5px hsl(var(--shadow-color) /
+                calc(var(--shadow-strength) + 4%)),
+          0 4px 12px -5px hsl(var(--shadow-color) /
+                calc(var(--shadow-strength) + 5%)),
+          0 12px 15px -5px hsl(var(--shadow-color) /
+                calc(var(--shadow-strength) + 7%));
+      }
+
+      .text-primary {
+        color: var(--theme-primary);
+      }
+
+      .text-secondary {
+        color: var(--theme-secondary);
+      }
+
+      .features-list {
+        display: grid;
+        font-size: 1.1rem;
+        gap: 1rem;
+        line-height: 1.5;
+        list-style-type: "";
+
+        li {
+          align-items: center;
+          display: grid;
+          gap: 0.5rem;
+          grid-template-columns: 2rem 1fr;
+        }
+      }
+
+      .site-brand {
+        margin-block: auto;
+        margin-inline-end: auto;
+      }
+
+      .theme-toggle {
+        margin-inline-end: calc(-1 * var(--button-padding-inline));
+        margin-inline-start: auto;
+      }
+
+      main section {
+        margin-block-start: 3rem;
+      }
+
+      main section h3 {
+        margin-block-start: 2rem;
+      }
+
+      .fa-lightbulb {
+        --fa-primary-color: var(--oc-gray-6);
+        --fa-secondary-color: var(--oc-yellow-4);
+        --fa-secondary-opacity: 1;
+      }
+    </style>
   </head>
   <body>
     <a href="#main" class="reader-only skip-link">Skip to main content</a>
-    <header class="container grid sticky">
-      <a href="/" class="site-brand">
-        <span class="text-primary">mnml</span><span class="text-secondary">.css</span>
-      </a>
-      <nav></nav>
-      <button class="theme-toggle no-bg">
-        <i class="fad fa-lightbulb"></i>
-        <span class="reader-only">Toggle theme</span>
-      </button>
+    <header class="sticky">
+      <div class="container grid">
+        <a href="/" class="site-brand">
+          <span class="text-primary">mnml</span
+          ><span class="text-secondary">.css</span>
+        </a>
+        <nav></nav>
+        <button class="theme-toggle no-bg">
+          <i class="fad fa-lightbulb"></i>
+          <span class="reader-only">Toggle theme</span>
+        </button>
+      </div>
     </header>
     <main class="container" id="main">
       <header>
         <h1>
-          <span class="text-primary">mnml</span><span class="text-secondary">.css</span>
+          <span class="text-primary">mnml</span
+          ><span class="text-secondary">.css</span>
         </h1>
         <p><em>A minimal, configurable CSS design system</em></p>
         <p>
-          The goal of mnml.css is to be a minimum-viable design system. Its features
-          include:
+          The goal of mnml.css is to be a minimum-viable design system. Its
+          features include:
         </p>
-        <ul class="fa-ul features-list">
+        <ul class="features-list">
           <li>
-            <span class="fa-li"><i class="fad fa-broom"></i></span> A CSS reset
-            compatible with modern browsers
+            <i class="fad fa-broom"></i> A CSS reset compatible with modern
+            browsers
           </li>
           <li>
-            <span class="fa-li"><i class="fad fa-phone-laptop"></i></span> A
-            mobile-first, responsive design approach
+            <i class="fad fa-phone-laptop"></i> A mobile-first, responsive
+            design approach
           </li>
           <li>
-            <span class="fa-li"><i class="fad fa-code"></i></span> A preference for
-            semantic tags over classes, when appropriate
+            <i class="fad fa-code"></i> A preference for semantic tags over
+            classes, when appropriate
           </li>
           <li>
-            <span class="fa-li"><i class="fad fa-sliders-h"></i></span>
+            <i class="fad fa-sliders-h"></i>
             Easy-to-implement customization using CSS Custom Properties
           </li>
-          <li>
-            <span class="fa-li"><i class="fad fa-adjust"></i></span> Dark-mode support
-          </li>
+          <li><i class="fad fa-adjust"></i> Dark-mode support</li>
         </ul>
         <p></p>
       </header>
@@ -71,14 +160,17 @@
           <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"
             >CSS Custom Properties</a
           >
-          throughout to allow you to customize sizing, spacing, colors, and animation
-          timing.
+          throughout to allow you to customize sizing, spacing, colors, and
+          animation timing.
         </p>
       </section>
 
       <section id="typography">
         <h2>Typography</h2>
-        <p>Out of the box mnml.css will give your basic typography elements ()</p>
+        <p>
+          Out of the box mnml.css will give your basic typography elements
+          (headers, paragraphs, lists, tables) a clean, readable look.
+        </p>
       </section>
 
       <section id="forms">
@@ -132,7 +224,11 @@
 
             <p>
               <label for="id_demo_form_number_input">Number input</label>
-              <input type="number" name="number" id="id_demo_form_number_input" />
+              <input
+                type="number"
+                name="number"
+                id="id_demo_form_number_input"
+              />
             </p>
 
             <p>
@@ -217,40 +313,34 @@
         <div class="grid">
           <button>Default</button>
           <button disabled>Disabled</button>
-          <button class="primary">.primary</button>
-          <button class="secondary">.secondary</button>
-          <button class="pink">.pink</button>
-          <button class="violet">.violet</button>
-          <button class="blue">.blue</button>
-          <button class="teal">.teal</button>
-          <button class="lime">.lime</button>
-          <button class="orange">.orange</button>
-          <button class="red">.red</button>
-          <button class="grape">.grape</button>
-          <button class="indigo">.indigo</button>
-          <button class="cyan">.cyan</button>
-          <button class="green">.green</button>
-          <button class="yellow">.yellow</button>
+          <button data-color="primary">[data-color="primary"]</button>
+          <button data-color="secondary">[data-color="secondary"]</button>
+          <button data-color="white">[data-color="white"]</button>
+          <button data-color="black">[data-color="black"]</button>
+          <button data-color="theme-contrasting">
+            [data-color="theme-contrasting"]
+          </button>
         </div>
 
         <h3>Outline</h3>
         <div class="grid">
-          <button class="outline">Default</button>
-          <button class="outline" disabled>Disabled</button>
-          <button class="outline primary">.primary.outline</button>
-          <button class="outline secondary">.secondary.outline</button>
-          <button class="outline pink">.pink.outline</button>
-          <button class="outline violet">.violet.outline</button>
-          <button class="outline blue">.blue.outline</button>
-          <button class="outline teal">.teal.outline</button>
-          <button class="outline lime">.lime.outline</button>
-          <button class="outline orange">.orange.outline</button>
-          <button class="outline red">.red.outline</button>
-          <button class="outline grape">.grape.outline</button>
-          <button class="outline indigo">.indigo.outline</button>
-          <button class="outline cyan">.cyan.outline</button>
-          <button class="outline green">.green.outline</button>
-          <button class="outline yellow">.yellow.outline</button>
+          <button data-variant="outline">Default</button>
+          <button data-variant="outline" disabled>Disabled</button>
+          <button data-variant="outline" data-color="primary">
+            [data-color="primary"]<wbr />[data-variant="outline"]
+          </button>
+          <button data-variant="outline" data-color="secondary">
+            [data-color="secondary"]<wbr />[data-variant="outline"]
+          </button>
+          <button data-variant="outline" data-color="white">
+            [data-color="white"]<wbr />[data-variant="outline"]
+          </button>
+          <button data-variant="outline" data-color="black">
+            [data-color="black"]<wbr />[data-variant="outline"]
+          </button>
+          <button data-variant="outline" data-color="theme-contrasting">
+            [data-color="theme-contrasting"]<wbr />[data-variant="outline"]
+          </button>
         </div>
       </section>
     </main>
@@ -267,7 +357,9 @@
 
       root.dataset.theme =
         window.localStorage.getItem("theme") ||
-        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
       mnml.listen("click", ".theme-toggle", (ev, btn) => {
         root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
         btn.blur();
