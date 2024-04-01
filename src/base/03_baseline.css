@@ -1,0 +1,411 @@
+@property --mnml--focus-ring--color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(208.4deg 76.9% 47.5%);
+}
+
+@property --mnml--focus-ring--offset {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 2px;
+}
+
+@property --mnml--body--background-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 100%);
+}
+
+@property --mnml--body--background-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 11% 15%);
+}
+
+@property --mnml--body--text-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 0%);
+}
+
+@property --mnml--body--text-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 100%);
+}
+
+@property --mnml--headers--font-weight {
+  syntax: "<font-weight>";
+  inherits: true;
+  initial-value: bolder;
+}
+
+@property --mnml--headers--font-family {
+  syntax: "<family-name>";
+  inherits: true;
+  initial-value: var(--mnml--font--sans);
+}
+
+@property --mnml--headers--text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+}
+
+@property --mnml--link--text-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(208deg 80% 52%);
+}
+
+@property --mnml--link--text-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(207deg 91% 64%);
+}
+
+@property --mnml--link--text-color--visited--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(255deg 53% 50%);
+}
+
+@property --mnml--link--text-color--visited--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(256deg 100% 87%);
+}
+
+@property --mnml--link--text-color--hover--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(208deg 80% 52%);
+}
+
+@property --mnml--link--text-color--hover--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(206deg 100% 82%);
+}
+
+@property --mnml--link--text-decoration {
+  syntax: "<text-decoration>";
+  inherits: true;
+  initial-value: underline;
+}
+
+@property --mnml--link--text-decoration--hover {
+  syntax: "<text-decoration>";
+  inherits: true;
+  initial-value: underline;
+}
+
+@property --mnml--selection--background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(47deg 100% 62%);
+}
+
+@property --mnml--selection--color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 11% 15%);
+}
+
+/* from https://systemfontstack.com */
+@property --mnml--font--sans {
+  syntax: "<family-name>";
+  inherits: true;
+  initial-value: ui-sans-serif, -apple-system, BlinkMacSystemFont, avenir next,
+    avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial,
+    sans-serif;
+}
+
+@property --mnml--font--serif {
+  syntax: "<family-name>";
+  inherits: true;
+  initial-value: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
+    Times New Roman, Droid Serif, Times, Source Serif Pro, serif;
+}
+
+@property --mnml--font--monospace {
+  syntax: "<family-name>";
+  inherits: true;
+  initial-value: ui-monospace, Menlo, Consolas, Monaco, Liberation Mono,
+    Lucida Console, monospace;
+}
+
+:where(:root, :host) {
+  --mnml--body--background-color: var(--mnml--body--background-color--light);
+  --mnml--body--text-color: var(--mnml--body--text-color--light);
+
+  --mnml--link--text-color: var(--mnml--link--text-color--light);
+  --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--light);
+  --mnml--link--text-color--visited: var(
+    --mnml--link--text-color--visited--light
+  );
+
+  color-scheme: light dark;
+}
+
+:where(:root, :host)[data-theme~="light"] {
+  color-scheme: light;
+}
+
+:where(:root, :host)[data-theme~="dark"] {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(:root, :host):not([data-theme~="light"]) {
+    --mnml--body--background-color: var(--mnml--body--background-color--dark);
+    --mnml--body--text-color: var(--mnml--body--text-color--dark);
+    --mnml--link--text-color: var(--mnml--link--text-color--dark);
+    --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--dark);
+    --mnml--link--text-color--visited: var(
+      --mnml--link--text-color--visited--dark
+    );
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:where(:focus-visible) {
+  outline: 2px solid var(--mnml--focus-ring--color);
+  outline-offset: var(--mnml--focus-ring--offset);
+}
+
+ol[class],
+ul[class] {
+  list-style: none;
+}
+
+::selection {
+  background-color: var(--mnml--selection--background-color);
+  color: var(--mnml--selection--text-color);
+}
+
+html {
+  text-size-adjust: none; /* https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/ */
+  line-height: 1.15;
+}
+
+body {
+  background-color: var(--mnml--body--background-color);
+  color: var(--mnml--body--text-color);
+  font-family: var(--body-font-family, var(--mnml--font--sans));
+}
+
+:where(a) {
+  text-decoration: var(--mnml--link--text-decoration);
+  transition-duration: var(--transition-duration);
+  transition-property: color;
+  transition-timing-function: ease-out;
+  will-change: color;
+
+  &:where(:link) {
+    color: var(--mnml--link--text-color);
+  }
+
+  &:where(:visited) {
+    color: var(--mnml--link--text-color--visited);
+  }
+
+  &:where(:focus-visible) {
+    color: var(--mnml--link--text-color--hover);
+    text-decoration: var(--mnml--link--text-decoration--hover);
+  }
+
+  @media (pointer: fine) and (hover: hover) {
+    &:where(:hover, :active) {
+      color: var(--mnml--link--text-color--hover);
+      text-decoration: var(--mnml--link--text-decoration--hover);
+    }
+  }
+
+  * {
+    color: inherit;
+  }
+}
+
+:where(hr) {
+  border-top: 1px solid currentColor;
+  margin-block: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--mnml--headers--text-color);
+  font-family: var(--mnml--headers--font-family);
+  font-weight: var(--mnml--headers--weight);
+  margin-block-end: var(--mnml--spacing);
+  margin-block-start: 0;
+  margin-inline: 0;
+}
+
+p {
+  margin-block-end: var(--mnml--spacing);
+  margin-block-start: 0;
+  margin-inline: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.8125rem;
+}
+
+h6 {
+  font-size: 0.625rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote {
+  line-height: calc(1em + 0.5rem);
+  overflow-wrap: break-word;
+}
+
+ol:not([class]),
+ul:not([class]) {
+  margin-block-end: var(--mnml--spacing);
+  margin-inline-start: var(--list-inline-spacing, 1.25rem);
+
+  & li + li {
+    margin-block-start: var(--mnml--spacing);
+  }
+}
+
+ol[role="list"],
+ul[role="list"] {
+  list-style: none;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--mnml--font--monospace);
+  font-size: 1rem;
+  white-space: revert;
+}
+
+small {
+  font-size: 0.8em;
+}
+
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  inset-block-end: -0.25em;
+}
+
+sup {
+  inset-block-start: -0.5em;
+}
+
+:where(button, input, optgroup, select, textarea) {
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.15;
+}
+
+:where(button) {
+  cursor: pointer;
+}
+
+/* Set some base styles for elements */
+
+body {
+  margin: 0;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+}
+
+img {
+  block-size: auto;
+  border-style: none;
+  max-inline-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  white-space: revert;
+}
+
+hr {
+  block-size: 0;
+  box-sizing: content-box;
+  overflow: visible;
+}
+
+details {
+  display: block;
+  margin-inline-start: 1rem;
+}
+
+summary {
+  display: list-item;
+}
+
+template,
+[hidden] {
+  display: none;
+}

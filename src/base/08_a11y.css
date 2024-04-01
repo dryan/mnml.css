@@ -1,0 +1,42 @@
+/* a11y */
+
+@property --mnml--skip-link--background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(47deg 100% 62%);
+}
+
+@property --mnml--skip-link--text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 11% 15%);
+}
+
+:where(.reader-only, .skip-link):not(:focus-visible):not(:active) {
+  word-wrap: normal !important;
+  block-size: 1px;
+  border: 0;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 1;
+
+  &:focus-visible {
+    --mnml--link-text-color--hover: var(--mnml--skip-link--text-color);
+    --mnml--focus-ring--color: transparent;
+    --mnml--focus-ring-offset: 0;
+
+    background-color: var(--mnml--skip-link--background-color);
+    inset-block-start: 0.25rem;
+    inset-inline-start: 0.25rem;
+    padding: 1rem;
+    z-index: 100000;
+  }
+}

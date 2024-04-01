@@ -1,0 +1,464 @@
+/* Forms & Inputs */
+
+@property --mnml--input--min-block-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 3.5rem;
+}
+
+@property --mnml--input--background-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 100%);
+}
+
+@property --mnml--input--background-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 8.8% 31.4%);
+}
+
+@property --mnml--input--background-color--disabled--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 16% 93%);
+}
+
+@property --mnml--input--background-color--disabled--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 10.3% 22.7%);
+}
+
+@property --mnml--input--background-color--focus--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 100%);
+}
+
+@property --mnml--input--background-color--focus--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 8.8% 31.4%);
+}
+
+@property --mnml--input--border-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 17% 95%);
+}
+
+@property --mnml--input--border-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 10.3% 22.7%);
+}
+
+@property --mnml--input--border-style {
+  syntax: "<border-style>";
+  inherits: true;
+  initial-value: solid;
+}
+
+@property --mnml--input--border-color--disabled--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 16% 93%);
+}
+
+@property --mnml--input--border-color--disabled--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 10.3% 22.7%);
+}
+
+@property --mnml--input--border-color--focus--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 14% 89%);
+}
+
+@property --mnml--input--border-color--focus--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 8.8% 31.4%);
+}
+
+@property --mnml--input--border-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1pt;
+}
+
+@property --mnml--input--padding-block {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --mnml--input--padding-inline {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --mnml--input--border-radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.25rem;
+}
+
+@property --mnml--input--text-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 0%);
+}
+
+@property --mnml--input--text-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 100%);
+}
+
+@property --mnml--input--text-color--focus--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 0%);
+}
+
+@property --mnml--input--text-color--focus--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 100%);
+}
+
+@property --mnml--input--text-color--disabled--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 0%);
+}
+
+@property --mnml--input--text-color--disabled--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 14% 83.1%);
+}
+
+@property --mnml--input--font-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --mnml--input--file--button--background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: var(--mnml--theme--primary);
+}
+
+@property --mnml--input--file--button--text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: var(--mnml--theme--primary--contrasting);
+}
+
+@property --mnml--input--file--button--background-color--hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: var(--mnml--theme--primary--hover);
+}
+
+@property --mnml--input--focus-ring--color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(208.4deg 76.9% 47.5% / 50%);
+}
+
+@property --mnml--input--focus-ring--width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.25rem;
+}
+
+@property --mnml--input--placeholder--text-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 7% 56%);
+}
+
+@property --mnml--input--placeholder--text-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(210deg 16.7% 95.3%);
+}
+
+@property --mnml--input--help-text--opacity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.8;
+}
+
+@property --mnml--input--required--text-color--light {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 65% 48%);
+}
+
+@property --mnml--input--required--text-color--dark {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 100% 76.5%);
+}
+
+@property --mnml--select--arrow--light {
+  syntax: "<image>" | "<url>";
+  inherits: true;
+  initial-value: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(210deg 10.3% 22.7%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+}
+
+@property --mnml--select--arrow--dark {
+  syntax: "<image>" | "<url>";
+  inherits: true;
+  initial-value: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(0deg 0% 100%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+}
+
+:where(:root, :host) {
+  --mnml--input--background-color: var(--mnml--input--background-color--light);
+  --mnml--input--background-color--disabled: var(
+    --mnml--input--background-color--disabled--light
+  );
+  --mnml--input--background-color--focus: var(
+    --mnml--input--background-color--focus--light
+  );
+  --mnml--input--border-color: var(--mnml--input--border-color--light);
+  --mnml--input--border-color--disabled: var(
+    --mnml--input--border-color--disabled--light
+  );
+  --mnml--input--border-color--focus: var(
+    --mnml--input--border-color--focus--light
+  );
+  --mnml--input--text-color: var(--mnml--input--text-color--light);
+  --mnml--input--text-color--focus: var(
+    --mnml--input--text-color--focus--light
+  );
+  --mnml--input--text-color--disabled: var(
+    --mnml--input--text-color--disabled--light
+  );
+  --mnml--input--placeholder--text-color: var(
+    --mnml--input--placeholder--text-color--light
+  );
+  --mnml--input--required--text-color: var(
+    --mnml--input--required--text-color--light
+  );
+  --mnml--select--arrow: var(--mnml--select--arrow--light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(:root, :host):not([data-theme~="light"]) {
+    --mnml--input--background-color: var(--mnml--input--background-color--dark);
+    --mnml--input--background-color--disabled: var(
+      --mnml--input--background-color--disabled--dark
+    );
+    --mnml--input--background-color--focus: var(
+      --mnml--input--background-color--focus--dark
+    );
+    --mnml--input--border-color: var(--mnml--input--border-color--dark);
+    --mnml--input--border-color--disabled: var(
+      --mnml--input--border-color--disabled--dark
+    );
+    --mnml--input--border-color--focus: var(
+      --mnml--input--border-color--focus--dark
+    );
+    --mnml--input--text-color: var(--mnml--input--text-color--dark);
+    --mnml--input--text-color--focus: var(
+      --mnml--input--text-color--focus--dark
+    );
+    --mnml--input--text-color--disabled: var(
+      --mnml--input--text-color--disabled--dark
+    );
+    --mnml--input--placeholder--text-color: var(
+      --mnml--input--placeholder--text-color--dark
+    );
+    --mnml--input--required--text-color: var(
+      --mnml--input--required--text-color--dark
+    );
+    --mnml--select--arrow: var(--mnml--select--arrow--dark);
+  }
+}
+
+form {
+  fieldset {
+    legend {
+      font-weight: bolder;
+      margin-block-end: var(--mnml--spacing);
+    }
+  }
+
+  fieldset + fieldset {
+    margin-block-start: calc(var(--mnml--spacing) * 2);
+  }
+
+  label {
+    display: block;
+    margin-block-end: 0.25rem;
+
+    &.toggle-label {
+      display: grid;
+      gap: calc(var(--mnml--spacing) * 0.75);
+      grid-template-columns: 1em auto;
+    }
+  }
+
+  .help {
+    display: block;
+    font-style: italic;
+    margin-block-start: 0.25rem;
+    opacity: var(--mnml--input--help-text--opacity);
+  }
+
+  abbr[title~="required" i] {
+    color: var(--required-color);
+    text-decoration: none;
+  }
+
+  :where(
+      input[type]:not([type="radio"]):not([type="checkbox"]),
+      textarea,
+      select
+    ) {
+    appearance: auto;
+    background-clip: padding-box;
+    background-color: var(--mnml--input--background-color);
+    border: var(--mnml--input--border-width) var(--mnml--input--border-style)
+      var(--mnml--input--border-color);
+    border-radius: var(--mnml--input--border-radius);
+    color: var(--mnml--input--text-color);
+    display: block;
+    font-size: var(--mnml--input--font-size);
+    inline-size: 100%;
+    min-block-size: var(--mnml--input--min-block-size);
+    padding-block: var(--mnml--input--padding-block);
+    padding-inline: var(--mnml--input--padding-inline);
+    transition-duration: var(--mnml--animation-duration);
+    transition-property: box-shadow, background-color, border-color;
+    transition-timing-function: var(--mnml--timing-function--smooth);
+    will-change: box-shadow, background-color, border-color;
+
+    &:where(:focus-visible) {
+      background-color: var(--mnml--input--background-color--focus);
+      border-color: var(--mnml--input--border-color--focus);
+      box-shadow: 0 0 0 var(--mnml--input--focus-ring--width)
+        var(--mnml--input--focus-ring--color);
+      color: var(--mnml--input--text-color--focus);
+      outline: none;
+    }
+
+    &:where([disabled], [readonly]) {
+      background-color: var(--mnml--input--background-color--disabled);
+      border-color: var(--mnml--input--border-color--disabled);
+      color: var(--mnml--input--text-color--disabled);
+      opacity: 0.8;
+    }
+
+    &:where([disabled]) {
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: var(--mnml--input--placeholder--text-color);
+    }
+  }
+
+  :where(input[type="radio"], input[type="checkbox"]) {
+    accent-color: var(--mnml--theme--primary, currentColor);
+    appearance: auto;
+  }
+
+  input[type="number"].no-arrows {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  input[type="file"] {
+    overflow: hidden;
+
+    &::file-selector-button,
+    &::-webkit-file-upload-button {
+      align-items: center;
+      background-color: var(--mnml--input--file--button--background-color);
+      border: 2px solid transparent;
+      color: var(--mnml--input--file--button--text-color);
+      display: inline-flex;
+      filter: brightness(1);
+      font-weight: normal;
+      justify-content: center;
+      margin-block: -1rem;
+      margin-inline-end: var(--mnml--spacing);
+      margin-inline-start: -1rem;
+      min-block-size: 100%;
+      padding: 1rem;
+      text-align: center;
+      transition-duration: var(--mnml--animation-duration);
+      transition-property: background-color;
+    }
+
+    &:not(:disabled):not([readonly]) {
+      &::file-selector-button,
+      &::-webkit-file-upload-button {
+        cursor: pointer;
+      }
+    }
+
+    &:where(:hover, :focus-visible) {
+      &::file-selector-button,
+      &::-webkit-file-upload-button {
+        background-color: var(
+          --mnml--input--file--button--background-color--hover
+        );
+        color: var(--mnml--input--file--button--text-color--hover);
+      }
+    }
+  }
+
+  select {
+    word-wrap: normal;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-block: var(--mnml--input--padding-block);
+    padding-inline: var(--mnml--input--padding-inline);
+
+    &:where(:not([multiple])) {
+      background-image: var(--mnml--select--arrow);
+      background-position: right 0.75rem center;
+      background-repeat: no-repeat;
+      background-size: 16px 12px;
+      padding-inline-end: calc(1.75rem + var(--mnml--input--padding-inline));
+    }
+
+    &:where([multiple]) {
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      option {
+        align-items: center;
+        display: flex;
+        margin: 0.25rem -0.5rem;
+        min-block-size: 1.5em;
+        padding: 0 0.5rem;
+      }
+    }
+  }
+}
+
+:where(:root, :host)[dir="rtl"] {
+  form {
+    select {
+      background-position: left 0.75rem center;
+    }
+  }
+}

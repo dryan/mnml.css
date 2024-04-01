@@ -38,16 +38,16 @@
 }
 
 .text--sans {
-  font-family: var(--ui-font-sans);
+  font-family: var(--mnml--font--sans);
 }
 
 .text--serif {
-  font-family: var(--ui-font-serif);
+  font-family: var(--mnml--font--serif);
 }
 
 .text--monospace,
 .text--mono {
-  font-family: var(--ui-font-monospace);
+  font-family: var(--mnml--font--monospace);
 }
 
 .text--nums {
