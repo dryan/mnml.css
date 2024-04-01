@@ -1,0 +1,335 @@
+/* Buttons */
+
+@property --mnml--button--background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 67%);
+}
+
+@property --mnml--button--background-color--hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 75%);
+}
+
+@property --mnml--button--text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 0%);
+}
+
+@property --mnml--button--text-color--hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 0%);
+}
+
+@property --mnml--button--border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --mnml--button--border-color--hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --mnml--button--border-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1pt;
+}
+
+@property --mnml--button--border-style {
+  syntax: "<border-style>";
+  inherits: true;
+  initial-value: solid;
+}
+
+@property --mnml--button--border-radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.25rem;
+}
+
+@property --mnml--button--font-family {
+  syntax: "<family-name>";
+  inherits: true;
+  initial-value: var(--mnml--font--sans);
+}
+
+@property --mnml--button--font-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --mnml--button--line-height {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1.4;
+}
+
+@property --mnml--button--text-transform {
+  syntax: "<text-transform>";
+  inherits: true;
+  initial-value: none;
+}
+
+@property --mnml--button--padding-block {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.5rem;
+}
+
+@property --mnml--button--padding-inline {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --mnml--button--min-block-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 3.5rem;
+}
+
+@property --mnml--button--display {
+  syntax: "<display-outside>";
+  inherits: true;
+  initial-value: inline-flex;
+}
+
+@property --mnml--button--column-gap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --mnml--button--row-gap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --mnml--button--disabled--background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 80%);
+}
+
+@property --mnml--button--disabled--text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0deg 0% 50%);
+}
+
+@property --mnml--button--disabled--border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+:where(button, .button) {
+  --button--base: var(--mnml--button--background-color);
+  --button--base--hover: var(--mnml--button--background-color--hover);
+  --button--background-color: var(--button--base);
+  --button--background-color--hover: var(--button-base--hover);
+  --button--text-color: var(--mnml--button--text-color);
+  --button--text-color--hover: var(--mnml--button--text-color--hover);
+  --button--border-color: var(--mnml--button--border-color);
+  --button--border-color--hover: var(--mnml--button--border-color--hover);
+  --button--border-width: var(--mnml--button--border-width);
+  --button--border-style: var(--mnml--button--border-style);
+  --button--border-radius: var(--mnml--button--border-radius);
+  --button--display: var(--mnml--button--display);
+  --button--font-family: var(--mnml--button--font-family);
+  --button--font-size: var(--mnml--button--font-size);
+  --button--font-weight: var(--mnml--button--font-weight);
+  --button--text-transform: var(--mnml--button--text-transform);
+  --button--column-gap: var(--mnml--button--column-gap);
+  --button--row-gap: var(--mnml--button--row-gap);
+  --button--min-block-size: var(--mnml--button--min-block-size);
+
+  align-items: center;
+  background-color: var(--button--background-color);
+  border: var(--button--border--width) var(--button--border-style)
+    var(--button-border);
+  border-radius: var(--button--border-radius);
+  color: var(--button--text-color);
+  column-gap: var(--button--column-gap);
+  display: var(--button--display);
+  font-family: var(--button--font-family);
+  font-size: var(--button--font-size, 1rem);
+  font-weight: var(--button-font-weight, bold);
+  justify-content: center;
+  min-block-size: var(--button--min-block-size);
+  padding-block: var(--button--padding-block);
+  padding-inline: var(--button--padding-inline);
+  row-gap: var(--button--row-gap);
+  text-align: center;
+  text-decoration: none;
+  text-transform: var(--button--text-transform);
+  transition-duration: var(--mnml--animation--duration);
+  transition-property: color, background-color;
+
+  &:where(:focus-visible) {
+    --button--background-color: var(--button--background-color--hover);
+    --button--text-color: var(--button--text-color--hover);
+    --button--border-color: var(--button--border-color--hover);
+  }
+
+  @media (pointer: fine) and (hover: hover) {
+    &:where(:hover, :active) {
+      --button--background-color: var(--button--background-color--hover);
+      --button--text-color: var(--button--text-color--hover);
+      --button--border-color: var(--button--border-color--hover);
+    }
+  }
+
+  &:where(:link) {
+    color: var(--button--text-color);
+  }
+
+  &:where(.primary, [data-color="primary"]) {
+    --button--base: var(--mnml--theme--primary);
+    --button--base--hover: var(--mnml--theme--primary--hover);
+    --button--text-color: var(--mnml--theme--primary--contrasting);
+  }
+
+  &:where(.secondary, [data-color="secondary"]) {
+    --button--base: var(--mnml--theme--secondary);
+    --button--base--hover: var(--mnml--theme--secondary--hover);
+    --button--text-color: var(--mnml--theme--secondary--contrasting);
+  }
+
+  &:where(.white, [data-color="white"]) {
+    --button--base: hsl(0deg 0% 100%);
+    --button--base--hover: hsl(0deg 0% 90.2%);
+    --button--text-color: hsl(210deg 10.3% 22.7%);
+  }
+
+  &:where(.black, [data-color="black"]) {
+    --button--base: hsl(0deg 0% 0%);
+    --button--base--hover: hsl(210deg 10.3% 22.7%);
+    --button--text-color: hsl(0deg 0% 100%);
+  }
+
+  &:where(.theme-contrasting, [data-color="theme-contrasting"]) {
+    --_hover-mixin-color: white;
+
+    --button--base: var(--mnml--body--background-color--dark);
+    --button--base--hover: color-mix(
+      in oklab,
+      var(--button--base),
+      var(--_hover-mixin-color) 10%
+    );
+    --button--text-color: var(--mnml--body--text-color--dark);
+
+    &:where(.no-bg, [data-variant~="no-bg"]) {
+      --button--text-color: var(--button--base);
+      --button--text-color--hover: var(--button--base--hover);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :where(:root, :host):not([data-theme~="light"]) & {
+        --_hover-mixin-color: black;
+        --button--base: var(--mnml--body--background-color--light);
+
+        &:not(:where(.outline, [data-variant~="outline"])) {
+          --button--text-color: var(--mnml--body--text-color--light);
+        }
+
+        &:where(.outline, [data-variant~="outline"]):where(:focus-visible) {
+          --button--text-color: var(--mnml--body--text-color--light);
+        }
+
+        &:where(.outline, [data-variant~="outline"]) {
+          @media (pointer: fine) and (hover: hover) {
+            &:where(:hover, :active) {
+              --button-color: var(--button--base--hover);
+            }
+          }
+        }
+
+        &:where(.no-bg, [data-variant~="no-bg"]) {
+          --button--text-color: var(--button--base);
+          --button--text-color--hover: var(--button--base--hover);
+        }
+      }
+    }
+  }
+
+  &:where(.outline, [data-variant~="outline"]) {
+    &:where(:not(:hover, :active, :focus-visible)) {
+      --button--background-color: transparent;
+      --button--border-color: var(--button--base);
+      --button--text-color: var(--button--base);
+    }
+  }
+
+  &:where(.no-bg, [data-variant~="no-bg"]) {
+    --button--text-color: var(--button--base);
+    --button--text-color--hover: var(--button--base--hover);
+
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:where(.inline, [data-variant~="inline"]) {
+    background-color: none;
+    border-radius: 0;
+    border-width: 0;
+    color: var(--mnml--link--text-color);
+    display: inline;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    min-block-size: 0;
+    padding: 0;
+    text-align: inherit;
+    vertical-align: baseline;
+
+    &:where(:focus-visible) {
+      color: var(--mnml--link--text-color--hover);
+    }
+
+    @media (pointer: fine) and (hover: hover) {
+      &:where(:hover, :active) {
+        color: var(--mnml--link--text-color--hover);
+      }
+    }
+  }
+
+  &:where(.rounded, [data-variant~="rounded"]) {
+    --button--border-radius: 5rem;
+  }
+
+  &:is(:disabled, [disabled]) {
+    --button--base: var(--mnml--button--disabled--background-color);
+    --button--text-color: var(--mnml--button--disabled--text-color);
+    --button--border-color: var(--mnml--button--disabled--border-color);
+
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:where(.outline, [data-variant~="outline"]) {
+      --button--background-color: transparent;
+      --button--text-color: var(--mnml--button--disabled--text-color);
+    }
+  }
+
+  svg {
+    block-size: 1em;
+    inline-size: 1em;
+  }
+}
+
+form {
+  :where(button, .button) {
+    min-block-size: var(--mnml--input--min-block-size);
+  }
+}

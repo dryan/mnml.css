@@ -1,0 +1,47 @@
+@property --mnml--theme--primary {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #161a30;
+}
+
+@property --mnml--theme--primary--contrasting {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: white;
+}
+
+@property --mnml--theme--primary--hover {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #31304d;
+}
+
+@property --mnml--theme--primary--hover--contrasting {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: white;
+}
+
+@property --mnml--theme--secondary {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #b6bbc4;
+}
+
+@property --mnml--theme--secondary--contrasting {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #161a30;
+}
+
+@property --mnml--theme--secondary--hover {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #dfe2e8;
+}
+
+@property --mnml--theme--secondary--hover--contrasting {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #161a30;
+}
