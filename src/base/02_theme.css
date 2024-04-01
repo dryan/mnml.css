@@ -1,7 +1,7 @@
 @property --mnml--theme--primary {
   syntax: "<color>";
   inherits: false;
-  initial-value: #161a30;
+  initial-value: #f04d00;
 }
 
 @property --mnml--theme--primary--contrasting {
@@ -13,7 +13,7 @@
 @property --mnml--theme--primary--hover {
   syntax: "<color>";
   inherits: false;
-  initial-value: #31304d;
+  initial-value: #ff6b24;
 }
 
 @property --mnml--theme--primary--hover--contrasting {
@@ -25,23 +25,42 @@
 @property --mnml--theme--secondary {
   syntax: "<color>";
   inherits: false;
-  initial-value: #b6bbc4;
+  initial-value: #84003a;
 }
 
 @property --mnml--theme--secondary--contrasting {
   syntax: "<color>";
   inherits: false;
-  initial-value: #161a30;
+  initial-value: white;
 }
 
 @property --mnml--theme--secondary--hover {
   syntax: "<color>";
   inherits: false;
-  initial-value: #dfe2e8;
+  initial-value: #b80051;
 }
 
 @property --mnml--theme--secondary--hover--contrasting {
   syntax: "<color>";
   inherits: false;
-  initial-value: #161a30;
+  initial-value: white;
+}
+
+:where(:root, :host) {
+  --mnml--theme--primary: #f04d00;
+  --mnml--theme--primary--contrasting: white;
+  --mnml--theme--primary--hover: #ff6b24;
+  --mnml--theme--primary--hover--contrasting: white;
+  --mnml--theme--secondary: #84003a;
+  --mnml--theme--secondary--contrasting: white;
+  --mnml--theme--secondary--hover: #b80051;
+  --mnml--theme--secondary--hover--contrasting: white;
+}
+
+@media (color-gamut: p3),
+  (color-gamut: rec2020) @supports (color: color(display-p3 0 0 0)) :where(:root, :host) {
+  --mnml--theme--primary: color(display-p3 0.90119 0.29731 0.02634);
+  --mnml--theme--primary--hover: color(display-p3 0.90119 0.29731 0.02634);
+  --mnml--theme--secondary: oklch(39.42% 0.178 5.16);
+  --mnml--theme--secondary--hover: oklch(50.23% 0.201 6.5);
 }

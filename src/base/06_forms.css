@@ -223,6 +223,7 @@
 }
 
 :where(:root, :host) {
+  --mnml--input--min-block-size: 3.5rem;
   --mnml--input--background-color: var(--mnml--input--background-color--light);
   --mnml--input--background-color--disabled: var(
     --mnml--input--background-color--disabled--light
@@ -237,6 +238,11 @@
   --mnml--input--border-color--focus: var(
     --mnml--input--border-color--focus--light
   );
+  --mnml--input--border-style: solid;
+  --mnml--input--border-width: 1pt;
+  --mnml--input--padding-block: 1rem;
+  --mnml--input--padding-inline: 1rem;
+  --mnml--input--border-radius: 0.25rem;
   --mnml--input--text-color: var(--mnml--input--text-color--light);
   --mnml--input--text-color--focus: var(
     --mnml--input--text-color--focus--light
@@ -244,12 +250,25 @@
   --mnml--input--text-color--disabled: var(
     --mnml--input--text-color--disabled--light
   );
+  --mnml--input--font-size: 1rem;
+  --mnml--input--file--button--background-color: var(--mnml--theme--primary);
+  --mnml--input--file--button--text-color: var(
+    --mnml--theme--primary--contrasting
+  );
+  --mnml--input--file--button--background-color--hover: var(
+    --mnml--theme--primary--hover
+  );
+  --mnml--input--focus-ring--color: hsl(208.4deg 76.9% 47.5% / 50%);
+  --mnml--input--focus-ring--width: 0.25rem;
   --mnml--input--placeholder--text-color: var(
     --mnml--input--placeholder--text-color--light
   );
+  --mnml--input--help-text--opacity: 0.8;
   --mnml--input--required--text-color: var(
     --mnml--input--required--text-color--light
   );
+  --mnml--select--arrow--light: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(210deg 10.3% 22.7%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+  --mnml--select--arrow--dark: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(0deg 0% 100%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
   --mnml--select--arrow: var(--mnml--select--arrow--light);
 }
 

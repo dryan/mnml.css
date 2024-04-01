@@ -132,15 +132,36 @@
   initial-value: transparent;
 }
 
+:where(:root, :host) {
+  --mnml--button--background-color: hsl(0deg 0% 67%);
+  --mnml--button--background-color--hover: hsl(0deg 0% 75%);
+  --mnml--button--text-color: hsl(0deg 0% 0%);
+  --mnml--button--text-color--hover: hsl(0deg 0% 0%);
+  --mnml--button--border-color: transparent;
+  --mnml--button--border-color--hover: transparent;
+  --mnml--button--border-width: 1pt;
+  --mnml--button--border-style: solid;
+  --mnml--button--border-radius: 0.25rem;
+  --mnml--button--font-family: var(--mnml--font--sans);
+  --mnml--button--font-size: 1rem;
+  --mnml--button--line-height: 1.4;
+  --mnml--button--text-transform: none;
+  --mnml--button--padding-block: 0.5rem;
+  --mnml--button--padding-inline: 1rem;
+  --mnml--button--min-block-size: 3.5rem;
+  --mnml--button--display: inline-flex;
+  --mnml--button--column-gap: 0;
+  --mnml--button--row-gap: 0;
+  --mnml--button--disabled--background-color: hsl(0deg 0% 80%);
+  --mnml--button--disabled--text-color: hsl(0deg 0% 50%);
+  --mnml--button--disabled--border-color: transparent;
+}
+
 :where(button, .button) {
   --button--base: var(--mnml--button--background-color);
   --button--base--hover: var(--mnml--button--background-color--hover);
-  --button--background-color: var(--button--base);
-  --button--background-color--hover: var(--button-base--hover);
   --button--text-color: var(--mnml--button--text-color);
   --button--text-color--hover: var(--mnml--button--text-color--hover);
-  --button--border-color: var(--mnml--button--border-color);
-  --button--border-color--hover: var(--mnml--button--border-color--hover);
   --button--border-width: var(--mnml--button--border-width);
   --button--border-style: var(--mnml--button--border-style);
   --button--border-radius: var(--mnml--button--border-radius);
@@ -152,11 +173,12 @@
   --button--column-gap: var(--mnml--button--column-gap);
   --button--row-gap: var(--mnml--button--row-gap);
   --button--min-block-size: var(--mnml--button--min-block-size);
+  --button--line-height: var(--mnml--button--line-height);
 
   align-items: center;
-  background-color: var(--button--background-color);
-  border: var(--button--border--width) var(--button--border-style)
-    var(--button-border);
+  background-color: var(--button--base);
+  border: var(--button--border-width) var(--button--border-style)
+    var(--button--base);
   border-radius: var(--button--border-radius);
   color: var(--button--text-color);
   column-gap: var(--button--column-gap);
@@ -165,6 +187,7 @@
   font-size: var(--button--font-size, 1rem);
   font-weight: var(--button-font-weight, bold);
   justify-content: center;
+  line-height: var(--button--line-height);
   min-block-size: var(--button--min-block-size);
   padding-block: var(--button--padding-block);
   padding-inline: var(--button--padding-inline);
@@ -172,20 +195,20 @@
   text-align: center;
   text-decoration: none;
   text-transform: var(--button--text-transform);
-  transition-duration: var(--mnml--animation--duration);
-  transition-property: color, background-color;
+  transition-duration: var(--mnml--animation-duration);
+  transition-property: color, background-color, border-color;
 
   &:where(:focus-visible) {
-    --button--background-color: var(--button--background-color--hover);
-    --button--text-color: var(--button--text-color--hover);
-    --button--border-color: var(--button--border-color--hover);
+    background-color: var(--button--base--hover);
+    border-color: var(--button--base--hover);
+    color: var(--button--text-color--hover);
   }
 
   @media (pointer: fine) and (hover: hover) {
     &:where(:hover, :active) {
-      --button--background-color: var(--button--background-color--hover);
-      --button--text-color: var(--button--text-color--hover);
-      --button--border-color: var(--button--border-color--hover);
+      background-color: var(--button--base--hover);
+      border-color: var(--button--base--hover);
+      color: var(--button--text-color--hover);
     }
   }
 
@@ -197,24 +220,32 @@
     --button--base: var(--mnml--theme--primary);
     --button--base--hover: var(--mnml--theme--primary--hover);
     --button--text-color: var(--mnml--theme--primary--contrasting);
+    --button--text-color--hover: var(
+      --mnml--theme--primary--hover--contrasting
+    );
   }
 
   &:where(.secondary, [data-color="secondary"]) {
     --button--base: var(--mnml--theme--secondary);
     --button--base--hover: var(--mnml--theme--secondary--hover);
     --button--text-color: var(--mnml--theme--secondary--contrasting);
+    --button--text-color--hover: var(
+      --mnml--theme--secondary--hover--contrasting
+    );
   }
 
   &:where(.white, [data-color="white"]) {
     --button--base: hsl(0deg 0% 100%);
     --button--base--hover: hsl(0deg 0% 90.2%);
     --button--text-color: hsl(210deg 10.3% 22.7%);
+    --button--text-color--hover: hsl(210deg 10.3% 22.7%);
   }
 
   &:where(.black, [data-color="black"]) {
     --button--base: hsl(0deg 0% 0%);
     --button--base--hover: hsl(210deg 10.3% 22.7%);
     --button--text-color: hsl(0deg 0% 100%);
+    --button--text-color--hover: hsl(0deg 0% 100%);
   }
 
   &:where(.theme-contrasting, [data-color="theme-contrasting"]) {
@@ -227,6 +258,7 @@
       var(--_hover-mixin-color) 10%
     );
     --button--text-color: var(--mnml--body--text-color--dark);
+    --button--text-color--hover: var(--mnml--body--text-color--dark);
 
     &:where(.no-bg, [data-variant~="no-bg"]) {
       --button--text-color: var(--button--base);
@@ -240,10 +272,12 @@
 
         &:not(:where(.outline, [data-variant~="outline"])) {
           --button--text-color: var(--mnml--body--text-color--light);
+          --button--text-color--hover: var(--mnml--body--text-color--light);
         }
 
         &:where(.outline, [data-variant~="outline"]):where(:focus-visible) {
           --button--text-color: var(--mnml--body--text-color--light);
+          --button--text-color--hover: var(--mnml--body--text-color--light);
         }
 
         &:where(.outline, [data-variant~="outline"]) {
@@ -264,9 +298,9 @@
 
   &:where(.outline, [data-variant~="outline"]) {
     &:where(:not(:hover, :active, :focus-visible)) {
-      --button--background-color: transparent;
-      --button--border-color: var(--button--base);
-      --button--text-color: var(--button--base);
+      background-color: transparent;
+      border-color: var(--button--base);
+      color: var(--button--base);
     }
   }
 
@@ -317,8 +351,12 @@
     pointer-events: none;
 
     &:where(.outline, [data-variant~="outline"]) {
-      --button--background-color: transparent;
-      --button--text-color: var(--mnml--button--disabled--text-color);
+      background-color: color-mix(
+        in oklch,
+        var(--button--base),
+        transparent 90%
+      );
+      color: var(--mnml--button--disabled--text-color);
     }
   }
 

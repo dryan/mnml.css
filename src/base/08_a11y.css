@@ -12,6 +12,11 @@
   initial-value: hsl(210deg 11% 15%);
 }
 
+:where(:root, :host) {
+  --mnml--skip-link--background-color: hsl(47deg 100% 62%);
+  --mnml--skip-link--text-color: hsl(210deg 11% 15%);
+}
+
 :where(.reader-only, .skip-link):not(:focus-visible):not(:active) {
   word-wrap: normal !important;
   block-size: 1px;
@@ -29,9 +34,9 @@
   z-index: 1;
 
   &:focus-visible {
-    --mnml--link-text-color--hover: var(--mnml--skip-link--text-color);
+    --mnml--link--text-color--hover: var(--mnml--skip-link--text-color);
     --mnml--focus-ring--color: transparent;
-    --mnml--focus-ring-offset: 0;
+    --mnml--focus-ring--offset: 0;
 
     background-color: var(--mnml--skip-link--background-color);
     inset-block-start: 0.25rem;

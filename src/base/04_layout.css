@@ -43,9 +43,15 @@
 }
 
 :where(:root, :host) {
+  --mnml--spacing: 1rem;
   --mnml--spacing--double: calc(var(--mnml--spacing) * 2);
   --mnml--spacing--half: calc(var(--mnml--spacing) / 2);
   --mnml--container--padding-inline: var(--mnml--spacing);
+  --mnml--container--max-inline-size: 75rem;
+  --mnml--grid--column-gap: var(--mnml--spacing);
+  --mnml--grid--row-gap: var(--mnml--spacing);
+  --mnml--grid--column--min-inline-size: 12.5rem;
+  --mnml--grid--row--block-size: auto;
 }
 
 .container {

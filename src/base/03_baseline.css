@@ -7,7 +7,7 @@
 @property --mnml--focus-ring--offset {
   syntax: "<length>";
   inherits: true;
-  initial-value: 2px;
+  initial-value: 0.125rem;
 }
 
 @property --mnml--body--background-color--light {
@@ -41,13 +41,13 @@
 }
 
 @property --mnml--headers--font-family {
-  syntax: "<family-name>";
+  syntax: "<family-name>" | "inherit";
   inherits: true;
   initial-value: var(--mnml--font--sans);
 }
 
 @property --mnml--headers--text-color {
-  syntax: "<color>";
+  syntax: "<color>" | "inherit";
   inherits: true;
   initial-value: inherit;
 }
@@ -136,14 +136,26 @@
 }
 
 :where(:root, :host) {
+  --mnml--focus-ring--color: hsl(208.4deg 76.9% 47.5%);
+  --mnml--focus-ring--offset: 0.125rem;
   --mnml--body--background-color: var(--mnml--body--background-color--light);
   --mnml--body--text-color: var(--mnml--body--text-color--light);
-
+  --mnml--headers--font-weight: bolder;
+  --mnml--headers--font-family: var(--mnml--font--sans);
+  --mnml--headers--text-color: inherit;
   --mnml--link--text-color: var(--mnml--link--text-color--light);
   --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--light);
   --mnml--link--text-color--visited: var(
     --mnml--link--text-color--visited--light
   );
+  --mnml--selection--background-color: hsl(47deg 100% 62%);
+  --mnml--selection--text-color: hsl(210deg 11% 15%);
+  --mnml--font--sans: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto,
+    noto, arial, sans-serif;
+  --mnml--font--serif: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
+    Times New Roman, Droid Serif, Times, Source Serif Pro, serif;
+  --mnml--font--monospace: ui-monospace, Menlo, Consolas, Monaco,
 
   color-scheme: light dark;
 }
@@ -197,7 +209,7 @@ html {
 body {
   background-color: var(--mnml--body--background-color);
   color: var(--mnml--body--text-color);
-  font-family: var(--body-font-family, var(--mnml--font--sans));
+  font-family: var(--mnml--body--font-family, var(--mnml--font--sans));
 }
 
 :where(a) {
