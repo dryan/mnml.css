@@ -1,137 +1,5 @@
 /* Buttons */
 
-@property --mnml--button--background-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 67%);
-}
-
-@property --mnml--button--background-color--hover {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 75%);
-}
-
-@property --mnml--button--text-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 0%);
-}
-
-@property --mnml--button--text-color--hover {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 0%);
-}
-
-@property --mnml--button--border-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: transparent;
-}
-
-@property --mnml--button--border-color--hover {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: transparent;
-}
-
-@property --mnml--button--border-width {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 1pt;
-}
-
-@property --mnml--button--border-style {
-  syntax: "<border-style>";
-  inherits: true;
-  initial-value: solid;
-}
-
-@property --mnml--button--border-radius {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0.25rem;
-}
-
-@property --mnml--button--font-family {
-  syntax: "<family-name>";
-  inherits: true;
-  initial-value: var(--mnml--font--sans);
-}
-
-@property --mnml--button--font-size {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 1rem;
-}
-
-@property --mnml--button--line-height {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 1.4;
-}
-
-@property --mnml--button--text-transform {
-  syntax: "<text-transform>";
-  inherits: true;
-  initial-value: none;
-}
-
-@property --mnml--button--padding-block {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0.5rem;
-}
-
-@property --mnml--button--padding-inline {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 1rem;
-}
-
-@property --mnml--button--min-block-size {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 3.5rem;
-}
-
-@property --mnml--button--display {
-  syntax: "<display-outside>";
-  inherits: true;
-  initial-value: inline-flex;
-}
-
-@property --mnml--button--column-gap {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0;
-}
-
-@property --mnml--button--row-gap {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0;
-}
-
-@property --mnml--button--disabled--background-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 80%);
-}
-
-@property --mnml--button--disabled--text-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 50%);
-}
-
-@property --mnml--button--disabled--border-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: transparent;
-}
-
 :where(:root, :host) {
   --mnml--button--background-color: hsl(0deg 0% 67%);
   --mnml--button--background-color--hover: hsl(0deg 0% 75%);
@@ -174,6 +42,8 @@
   --button--row-gap: var(--mnml--button--row-gap);
   --button--min-block-size: var(--mnml--button--min-block-size);
   --button--line-height: var(--mnml--button--line-height);
+  --button--padding-block: var(--mnml--button--padding-block);
+  --button--padding-inline: var(--mnml--button--padding-inline);
 
   align-items: center;
   background-color: var(--button--base);
@@ -185,7 +55,7 @@
   display: var(--button--display);
   font-family: var(--button--font-family);
   font-size: var(--button--font-size, 1rem);
-  font-weight: var(--button-font-weight, bold);
+  font-weight: var(--button--font-weight, bold);
   justify-content: center;
   line-height: var(--button--line-height);
   min-block-size: var(--button--min-block-size);

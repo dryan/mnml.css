@@ -1,140 +1,3 @@
-@property --mnml--focus-ring--color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(208.4deg 76.9% 47.5%);
-}
-
-@property --mnml--focus-ring--offset {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 0.125rem;
-}
-
-@property --mnml--body--background-color--light {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 100%);
-}
-
-@property --mnml--body--background-color--dark {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(210deg 11% 15%);
-}
-
-@property --mnml--body--text-color--light {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 0%);
-}
-
-@property --mnml--body--text-color--dark {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(0deg 0% 100%);
-}
-
-@property --mnml--headers--font-weight {
-  syntax: "<font-weight>";
-  inherits: true;
-  initial-value: bolder;
-}
-
-@property --mnml--headers--font-family {
-  syntax: "<family-name>" | "inherit";
-  inherits: true;
-  initial-value: var(--mnml--font--sans);
-}
-
-@property --mnml--headers--text-color {
-  syntax: "<color>" | "inherit";
-  inherits: true;
-  initial-value: inherit;
-}
-
-@property --mnml--link--text-color--light {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(208deg 80% 52%);
-}
-
-@property --mnml--link--text-color--dark {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(207deg 91% 64%);
-}
-
-@property --mnml--link--text-color--visited--light {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(255deg 53% 50%);
-}
-
-@property --mnml--link--text-color--visited--dark {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(256deg 100% 87%);
-}
-
-@property --mnml--link--text-color--hover--light {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(208deg 80% 52%);
-}
-
-@property --mnml--link--text-color--hover--dark {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(206deg 100% 82%);
-}
-
-@property --mnml--link--text-decoration {
-  syntax: "<text-decoration>";
-  inherits: true;
-  initial-value: underline;
-}
-
-@property --mnml--link--text-decoration--hover {
-  syntax: "<text-decoration>";
-  inherits: true;
-  initial-value: underline;
-}
-
-@property --mnml--selection--background-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(47deg 100% 62%);
-}
-
-@property --mnml--selection--color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(210deg 11% 15%);
-}
-
-/* from https://systemfontstack.com */
-@property --mnml--font--sans {
-  syntax: "<family-name>";
-  inherits: true;
-  initial-value: ui-sans-serif, -apple-system, BlinkMacSystemFont, avenir next,
-    avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial,
-    sans-serif;
-}
-
-@property --mnml--font--serif {
-  syntax: "<family-name>";
-  inherits: true;
-  initial-value: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
-    Times New Roman, Droid Serif, Times, Source Serif Pro, serif;
-}
-
-@property --mnml--font--monospace {
-  syntax: "<family-name>";
-  inherits: true;
-  initial-value: ui-monospace, Menlo, Consolas, Monaco, Liberation Mono,
-    Lucida Console, monospace;
-}
-
 :where(:root, :host) {
   --mnml--focus-ring--color: hsl(208.4deg 76.9% 47.5%);
   --mnml--focus-ring--offset: 0.125rem;
@@ -143,11 +6,19 @@
   --mnml--headers--font-weight: bolder;
   --mnml--headers--font-family: var(--mnml--font--sans);
   --mnml--headers--text-color: inherit;
+  --mnml--link--text-color--light: hsl(208deg 80% 52%);
+  --mnml--link--text-color--dark: hsl(207deg 91% 64%);
+  --mnml--link--text-color--visited--light: hsl(255deg 53% 50%);
+  --mnml--link--text-color--visited--dark: hsl(256deg 100% 87%);
+  -mnml--link--text-color--hover--light: hsl(208deg 80% 52%);
+  --mnml--link--text-color--hover--dark: hsl(206deg 100% 82%);
   --mnml--link--text-color: var(--mnml--link--text-color--light);
   --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--light);
   --mnml--link--text-color--visited: var(
     --mnml--link--text-color--visited--light
   );
+  --mnml--link--text-decoration: underline;
+  --mnml--link--text-decoration--hover: underline;
   --mnml--selection--background-color: hsl(47deg 100% 62%);
   --mnml--selection--text-color: hsl(210deg 11% 15%);
   --mnml--font--sans: ui-sans-serif, -apple-system, BlinkMacSystemFont,
@@ -155,7 +26,7 @@
     noto, arial, sans-serif;
   --mnml--font--serif: ui-serif, Iowan Old Style, Apple Garamond, Baskerville,
     Times New Roman, Droid Serif, Times, Source Serif Pro, serif;
-  --mnml--font--monospace: ui-monospace, Menlo, Consolas, Monaco,
+  --mnml--font--monospace: ui-monospace, Menlo, Consolas, Monaco;
 
   color-scheme: light dark;
 }

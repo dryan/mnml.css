@@ -1,17 +1,5 @@
 /* a11y */
 
-@property --mnml--skip-link--background-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(47deg 100% 62%);
-}
-
-@property --mnml--skip-link--text-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: hsl(210deg 11% 15%);
-}
-
 :where(:root, :host) {
   --mnml--skip-link--background-color: hsl(47deg 100% 62%);
   --mnml--skip-link--text-color: hsl(210deg 11% 15%);
