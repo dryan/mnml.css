@@ -162,7 +162,6 @@ form {
     transition-duration: var(--mnml--animation-duration);
     transition-property: box-shadow, background-color, border-color;
     transition-timing-function: var(--mnml--timing-function--smooth);
-    will-change: box-shadow, background-color, border-color;
 
     &:where(:focus-visible) {
       background-color: var(--mnml--input--background-color--focus);
