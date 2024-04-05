@@ -10,7 +10,7 @@
   --mnml--link--text-color--dark: hsl(207deg 91% 64%);
   --mnml--link--text-color--visited--light: hsl(255deg 53% 50%);
   --mnml--link--text-color--visited--dark: hsl(256deg 100% 87%);
-  -mnml--link--text-color--hover--light: hsl(208deg 80% 52%);
+  --mnml--link--text-color--hover--light: hsl(208deg 80% 52%);
   --mnml--link--text-color--hover--dark: hsl(206deg 100% 82%);
   --mnml--link--text-color: var(--mnml--link--text-color--light);
   --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--light);
