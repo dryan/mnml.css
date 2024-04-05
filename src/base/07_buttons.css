@@ -206,7 +206,7 @@
   }
 
   &:where(.inline, [data-variant~="inline"]) {
-    background-color: none;
+    background-color: transparent;
     border-radius: 0;
     border-width: 0;
     color: var(--mnml--link--text-color);
