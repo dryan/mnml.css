@@ -131,6 +131,22 @@
     --button--text-color: var(--mnml--body--text-color--dark);
     --button--text-color--hover: var(--mnml--body--text-color--dark);
 
+    @supports (color: light-dark(black, white)) {
+      --_hover-mixin-color: light-dark(white, black);
+      --button--base: light-dark(
+        var(--mnml--body--background-color--dark),
+        var(--mnml--body--background-color--light)
+      );
+      --button--text-color: light-dark(
+        var(--mnml--body--text-color--dark),
+        var(--mnml--body--text-color--light)
+      );
+      --button--text-color--hover: light-dark(
+        var(--mnml--body--text-color--dark),
+        var(--mnml--body--text-color--light)
+      );
+    }
+
     &:where(.no-bg, [data-variant~="no-bg"]) {
       --button--text-color: var(--button--base);
       --button--text-color--hover: var(--button--base--hover);
@@ -138,30 +154,36 @@
 
     @media (prefers-color-scheme: dark) {
       :where(:root, :host):not([data-theme~="light"]) & {
-        --_hover-mixin-color: black;
-        --button--base: var(--mnml--body--background-color--light);
+        @supports not (color: light-dark(black, white)) {
+          --_hover-mixin-color: black;
+          --button--base: var(--mnml--body--background-color--light);
 
-        &:not(:where(.outline, [data-variant~="outline"])) {
-          --button--text-color: var(--mnml--body--text-color--light);
-          --button--text-color--hover: var(--mnml--body--text-color--light);
-        }
+          &:not(:where(.outline, [data-variant~="outline"])) {
+            --button--text-color: var(--mnml--body--text-color--light);
+            --button--text-color--hover: var(--mnml--body--text-color--light);
+          }
 
-        &:where(.outline, [data-variant~="outline"]):where(:focus-visible) {
-          --button--text-color: var(--mnml--body--text-color--light);
-          --button--text-color--hover: var(--mnml--body--text-color--light);
-        }
+          &:where(.outline, [data-variant~="outline"]):where(
+              :focus-visible,
+              :hover,
+              :active
+            ) {
+            --button--text-color: var(--mnml--body--text-color--light);
+            --button--text-color--hover: var(--mnml--body--text-color--light);
+          }
 
-        &:where(.outline, [data-variant~="outline"]) {
-          @media (pointer: fine) and (hover: hover) {
-            &:where(:hover, :active) {
-              --button-color: var(--button--base--hover);
+          &:where(.outline, [data-variant~="outline"]) {
+            @media (pointer: fine) and (hover: hover) {
+              &:where(:hover, :active) {
+                --button-color: var(--button--base--hover);
+              }
             }
           }
-        }
 
-        &:where(.no-bg, [data-variant~="no-bg"]) {
-          --button--text-color: var(--button--base);
-          --button--text-color--hover: var(--button--base--hover);
+          &:where(.no-bg, [data-variant~="no-bg"]) {
+            --button--text-color: var(--button--base);
+            --button--text-color--hover: var(--button--base--hover);
+          }
         }
       }
     }

@@ -4,30 +4,16 @@
   --mnml--input--min-block-size: 3.5rem;
   --mnml--input--background-color--light: hsl(0deg 0% 100%);
   --mnml--input--background-color--dark: hsl(210deg 8.8% 31.4%);
-  --mnml--input--background-color: var(--mnml--input--background-color--light);
   --mnml--input--background-color--disabled--light: hsl(210deg 16% 93%);
   --mnml--input--background-color--disabled--dark: hsl(210deg 10.3% 22.7%);
-  --mnml--input--background-color--disabled: var(
-    --mnml--input--background-color--disabled--light
-  );
   --mnml--input--background-color--focus--light: hsl(0deg 0% 100%);
   --mnml--input--background-color--focus--dark: hsl(210deg 14% 89%);
-  --mnml--input--background-color--focus: var(
-    --mnml--input--background-color--focus--light
-  );
   --mnml--input--border-color--light: hsl(210deg 17% 95%);
   --mnml--input--border-color--dark: hsl(210deg 10.3% 22.7%);
-  --mnml--input--border-color: var(--mnml--input--border-color--light);
   --mnml--input--border-color--disabled--light: hsl(210deg 16% 93%);
   --mnml--input--border-color--disabled--dark: hsl(210deg 10.3% 22.7%);
-  --mnml--input--border-color--disabled: var(
-    --mnml--input--border-color--disabled--light
-  );
   --mnml--input--border-color--focus--light: hsl(210deg 14% 89%);
   --mnml--input--border-color--focus--dark: hsl(210deg 8.8% 31.4%);
-  --mnml--input--border-color--focus: var(
-    --mnml--input--border-color--focus--light
-  );
   --mnml--input--border-style: solid;
   --mnml--input--border-width: 1pt;
   --mnml--input--padding-block: 1rem;
@@ -35,17 +21,10 @@
   --mnml--input--border-radius: 0.25rem;
   --mnml--input--text-color--light: hsl(0deg 0% 0%);
   --mnml--input--text-color--dark: hsl(0deg 0% 100%);
-  --mnml--input--text-color: var(--mnml--input--text-color--light);
   --mnml--input--text-color--focus--light: hsl(0deg 0% 0%);
   --mnml--input--text-color--focus--dark: hsl(0deg 0% 10%);
-  --mnml--input--text-color--focus: var(
-    --mnml--input--text-color--focus--light
-  );
   --mnml--input--text-color--disabled--light: hsl(0deg 0% 0%);
   --mnml--input--text-color--disabled--dark: hsl(210deg 14% 83.1%);
-  --mnml--input--text-color--disabled: var(
-    --mnml--input--text-color--disabled--light
-  );
   --mnml--input--font-size: 1rem;
   --mnml--input--file--button--background-color: var(--mnml--theme--primary);
   --mnml--input--file--button--text-color: var(
@@ -65,43 +44,131 @@
   --mnml--input--help-text--opacity: 0.8;
   --mnml--input--required--text-color--light: hsl(0deg 65% 48%);
   --mnml--input--required--text-color--dark: hsl(0deg 100% 76.5%);
-  --mnml--input--required--text-color: var(
-    --mnml--input--required--text-color--light
-  );
   --mnml--select--arrow--light: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(210deg 10.3% 22.7%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
   --mnml--select--arrow--dark: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="hsl(0deg 0% 100%)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
   --mnml--select--arrow: var(--mnml--select--arrow--light);
 }
 
-@media (prefers-color-scheme: dark) {
-  :where(:root, :host):not([data-theme~="light"]) {
-    --mnml--input--background-color: var(--mnml--input--background-color--dark);
+@supports (color: light-dark(black, white)) {
+  :where(:root, :host) {
+    --mnml--input--background-color: light-dark(
+      var(--mnml--input--background-color--light),
+      var(--mnml--input--background-color--dark)
+    );
+    --mnml--input--background-color--disabled: light-dark(
+      var(--mnml--input--background-color--disabled--light),
+      var(--mnml--input--background-color--disabled--dark)
+    );
+    --mnml--input--background-color--focus: light-dark(
+      var(--mnml--input--background-color--focus--light),
+      var(--mnml--input--background-color--focus--dark)
+    );
+    --mnml--input--border-color: light-dark(
+      var(--mnml--input--border-color--light),
+      var(--mnml--input--border-color--dark)
+    );
+    --mnml--input--border-color--disabled: light-dark(
+      var(--mnml--input--border-color--disabled--light),
+      var(--mnml--input--border-color--disabled--dark)
+    );
+    --mnml--input--border-color--focus: light-dark(
+      var(--mnml--input--border-color--focus--light),
+      var(--mnml--input--border-color--focus--dark)
+    );
+    --mnml--input--text-color: light-dark(
+      var(--mnml--input--text-color--light),
+      var(--mnml--input--text-color--dark)
+    );
+    --mnml--input--text-color--focus: light-dark(
+      var(--mnml--input--text-color--focus--light),
+      var(--mnml--input--text-color--focus--dark)
+    );
+    --mnml--input--text-color--disabled: light-dark(
+      var(--mnml--input--text-color--disabled--light),
+      var(--mnml--input--text-color--disabled--dark)
+    );
+    --mnml--input--placeholder--text-color: light-dark(
+      var(--mnml--input--placeholder--text-color--light),
+      var(--mnml--input--placeholder--text-color--dark)
+    );
+    --mnml--input--required--text-color: light-dark(
+      var(--mnml--input--required--text-color--light),
+      var(--mnml--input--required--text-color--dark)
+    );
+  }
+}
+
+@supports not (color: light-dark(black, white)) {
+  :where(:root, :host) {
+    --mnml--input--background-color: var(
+      --mnml--input--background-color--light
+    );
     --mnml--input--background-color--disabled: var(
-      --mnml--input--background-color--disabled--dark
+      --mnml--input--background-color--disabled--light
     );
     --mnml--input--background-color--focus: var(
-      --mnml--input--background-color--focus--dark
+      --mnml--input--background-color--focus--light
     );
-    --mnml--input--border-color: var(--mnml--input--border-color--dark);
+    --mnml--input--border-color: var(--mnml--input--border-color--light);
     --mnml--input--border-color--disabled: var(
-      --mnml--input--border-color--disabled--dark
+      --mnml--input--border-color--disabled--light
     );
     --mnml--input--border-color--focus: var(
-      --mnml--input--border-color--focus--dark
+      --mnml--input--border-color--focus--light
     );
-    --mnml--input--text-color: var(--mnml--input--text-color--dark);
+    --mnml--input--text-color: var(--mnml--input--text-color--light);
     --mnml--input--text-color--focus: var(
-      --mnml--input--text-color--focus--dark
+      --mnml--input--text-color--focus--light
     );
     --mnml--input--text-color--disabled: var(
-      --mnml--input--text-color--disabled--dark
+      --mnml--input--text-color--disabled--light
     );
     --mnml--input--placeholder--text-color: var(
-      --mnml--input--placeholder--text-color--dark
+      --mnml--input--placeholder--text-color--light
     );
     --mnml--input--required--text-color: var(
-      --mnml--input--required--text-color--dark
+      --mnml--input--required--text-color--light
     );
+    --mnml--select--arrow: var(--mnml--select--arrow--light);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :where(:root, :host):not([data-theme~="light"]) {
+      --mnml--input--background-color: var(
+        --mnml--input--background-color--dark
+      );
+      --mnml--input--background-color--disabled: var(
+        --mnml--input--background-color--disabled--dark
+      );
+      --mnml--input--background-color--focus: var(
+        --mnml--input--background-color--focus--dark
+      );
+      --mnml--input--border-color: var(--mnml--input--border-color--dark);
+      --mnml--input--border-color--disabled: var(
+        --mnml--input--border-color--disabled--dark
+      );
+      --mnml--input--border-color--focus: var(
+        --mnml--input--border-color--focus--dark
+      );
+      --mnml--input--text-color: var(--mnml--input--text-color--dark);
+      --mnml--input--text-color--focus: var(
+        --mnml--input--text-color--focus--dark
+      );
+      --mnml--input--text-color--disabled: var(
+        --mnml--input--text-color--disabled--dark
+      );
+      --mnml--input--placeholder--text-color: var(
+        --mnml--input--placeholder--text-color--dark
+      );
+      --mnml--input--required--text-color: var(
+        --mnml--input--required--text-color--dark
+      );
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(:root, :host):not([data-theme~="light"]) {
     --mnml--select--arrow: var(--mnml--select--arrow--dark);
   }
 }

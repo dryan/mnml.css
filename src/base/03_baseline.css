@@ -2,8 +2,11 @@
   --mnml--focus-ring--color: hsl(208.4deg 76.9% 47.5%);
   --mnml--focus-ring--width: 0.125rem;
   --mnml--focus-ring--offset: 0.125rem;
-  --mnml--body--background-color: var(--mnml--body--background-color--light);
-  --mnml--body--text-color: var(--mnml--body--text-color--light);
+  --mnml--body--background-color--light: hsl(210deg 16.7% 97.6%);
+  --mnml--body--background-color--dark: hsl(210deg 40% 2%);
+  --mnml--body--font-family: var(--mnml--font--sans);
+  --mnml--body--text-color--light: hsl(210deg 10.3% 22.7%);
+  --mnml--body--text-color--dark: hsl(210deg 13.8% 88.6%);
   --mnml--headers--font-weight: bolder;
   --mnml--headers--font-family: var(--mnml--font--sans);
   --mnml--headers--text-color: inherit;
@@ -13,11 +16,6 @@
   --mnml--link--text-color--visited--dark: hsl(256deg 100% 87%);
   --mnml--link--text-color--hover--light: hsl(208deg 80% 52%);
   --mnml--link--text-color--hover--dark: hsl(206deg 100% 82%);
-  --mnml--link--text-color: var(--mnml--link--text-color--light);
-  --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--light);
-  --mnml--link--text-color--visited: var(
-    --mnml--link--text-color--visited--light
-  );
   --mnml--link--text-decoration: underline;
   --mnml--link--text-decoration--hover: underline;
   --mnml--selection--background-color: hsl(47deg 100% 62%);
@@ -32,6 +30,46 @@
   color-scheme: light dark;
 }
 
+@supports (color: light-dark(black, white)) {
+  :where(:root, :host) {
+    --mnml--body--background-color: light-dark(
+      var(--mnml--body--background-color--light),
+      var(--mnml--body--background-color--dark)
+    );
+    --mnml--body--text-color: light-dark(
+      var(--mnml--body--text-color--light),
+      var(--mnml--body--text-color--dark)
+    );
+    --mnml--link--text-color: light-dark(
+      var(--mnml--link--text-color--light),
+      var(--mnml--link--text-color--dark)
+    );
+    --mnml--link--text-color--hover: light-dark(
+      var(--mnml--link--text-color--hover--light),
+      var(--mnml--link--text-color--hover--dark)
+    );
+    --mnml--link--text-color--visited: light-dark(
+      var(--mnml--link--text-color--visited--light),
+      var(--mnml--link--text-color--visited--dark)
+    );
+  }
+}
+
+@supports not (color: light-dark(black, white)) {
+  :where(:root, :host) {
+    --mnml--body--background-color: var(--mnml--body--background-color--light);
+    --mnml--body--background-color: var(--mnml--body--background-color--light);
+    --mnml--body--text-color: var(--mnml--body--text-color--light);
+    --mnml--link--text-color: var(--mnml--link--text-color--light);
+    --mnml--link--text-color--hover: var(
+      --mnml--link--text-color--hover--light
+    );
+    --mnml--link--text-color--visited: var(
+      --mnml--link--text-color--visited--light
+    );
+  }
+}
+
 :where(:root, :host)[data-theme~="light"] {
   color-scheme: light;
 }
@@ -42,13 +80,21 @@
 
 @media (prefers-color-scheme: dark) {
   :where(:root, :host):not([data-theme~="light"]) {
-    --mnml--body--background-color: var(--mnml--body--background-color--dark);
-    --mnml--body--text-color: var(--mnml--body--text-color--dark);
-    --mnml--link--text-color: var(--mnml--link--text-color--dark);
-    --mnml--link--text-color--hover: var(--mnml--link--text-color--hover--dark);
-    --mnml--link--text-color--visited: var(
-      --mnml--link--text-color--visited--dark
-    );
+    color-scheme: dark;
+  }
+
+  @supports not (color: light-dark(black, white)) {
+    :where(:root, :host):not([data-theme~="light"]) {
+      --mnml--body--background-color: var(--mnml--body--background-color--dark);
+      --mnml--body--text-color: var(--mnml--body--text-color--dark);
+      --mnml--link--text-color: var(--mnml--link--text-color--dark);
+      --mnml--link--text-color--hover: var(
+        --mnml--link--text-color--hover--dark
+      );
+      --mnml--link--text-color--visited: var(
+        --mnml--link--text-color--visited--dark
+      );
+    }
   }
 }
 
@@ -81,7 +127,7 @@ html {
 body {
   background-color: var(--mnml--body--background-color);
   color: var(--mnml--body--text-color);
-  font-family: var(--mnml--body--font-family, var(--mnml--font--sans));
+  font-family: var(--mnml--body--font-family);
 }
 
 :where(a) {
