@@ -37,7 +37,7 @@
   --mnml--input--text-color--dark: hsl(0deg 0% 100%);
   --mnml--input--text-color: var(--mnml--input--text-color--light);
   --mnml--input--text-color--focus--light: hsl(0deg 0% 0%);
-  --mnml--input--text-color--focus--dark: hsl(0deg 0% 100%);
+  --mnml--input--text-color--focus--dark: hsl(0deg 0% 10%);
   --mnml--input--text-color--focus: var(
     --mnml--input--text-color--focus--light
   );
