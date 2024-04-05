@@ -55,7 +55,8 @@
     --mnml--theme--primary--hover
   );
   --mnml--input--focus-ring--color: var(--mnml--focus-ring--color);
-  --mnml--input--focus-ring--width: 0.125rem;
+  --mnml--input--focus-ring--width: var(--mnml--focus-ring--width);
+  --mnml--input--focus-ring--offset: var(--mnml--focus-ring--offset);
   --mnml--input--placeholder--text-color--light: hsl(210deg 7% 56%);
   --mnml--input--placeholder--text-color--dark: hsl(210deg 16.7% 95.3%);
   --mnml--input--placeholder--text-color: var(
@@ -168,10 +169,7 @@ form {
       border-color: var(--mnml--input--border-color--focus);
       color: var(--mnml--input--text-color--focus);
       outline-color: var(--mnml--input--focus-ring--color);
-      outline-offset: var(
-        --mnml--input--focus-ring--offset,
-        var(--mnml--input--focus-ring--width)
-      );
+      outline-offset: var(--mnml--input--focus-ring--offset);
       outline-width: var(--mnml--input--focus-ring--width);
     }
 
