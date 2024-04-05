@@ -86,7 +86,7 @@ body {
 
 :where(a) {
   text-decoration: var(--mnml--link--text-decoration);
-  transition-duration: var(--transition-duration);
+  transition-duration: var(--mnml--animation-duration);
   transition-property: color;
   transition-timing-function: ease-out;
   will-change: color;
@@ -181,7 +181,7 @@ blockquote {
 ol:not([class]),
 ul:not([class]) {
   margin-block-end: var(--mnml--spacing);
-  margin-inline-start: var(--list-inline-spacing, 1.25rem);
+  margin-inline-start: var(--mnml--list--margin-inline-start, 1.25rem);
 
   & li + li {
     margin-block-start: var(--mnml--spacing);
