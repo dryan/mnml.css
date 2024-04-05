@@ -1,5 +1,6 @@
 :where(:root, :host) {
   --mnml--focus-ring--color: hsl(208.4deg 76.9% 47.5%);
+  --mnml--focus-ring--width: 0.125rem;
   --mnml--focus-ring--offset: 0.125rem;
   --mnml--body--background-color: var(--mnml--body--background-color--light);
   --mnml--body--text-color: var(--mnml--body--text-color--light);
@@ -58,7 +59,7 @@
 }
 
 *:where(:focus-visible) {
-  outline: 2px solid var(--mnml--focus-ring--color);
+  outline: var(--mnml--focus-ring--width) solid var(--mnml--focus-ring--color);
   outline-offset: var(--mnml--focus-ring--offset);
 }
 
