@@ -12,6 +12,7 @@
   --mnml--button--border-radius: 0.25rem;
   --mnml--button--font-family: var(--mnml--font--sans);
   --mnml--button--font-size: 1rem;
+  --mnml--button--font-weight: 700;
   --mnml--button--line-height: 1.4;
   --mnml--button--text-transform: none;
   --mnml--button--padding-block: 0.5rem;
