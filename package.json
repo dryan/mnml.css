@@ -8,6 +8,7 @@
     "prebuild": "npm run clean",
     "build": "npx --yes update-browserslist-db@latest && npx ts-node -O '{\"module\":\"commonjs\"}' ./builder.cts && cp ./dist/mnml* .",
     "clean": "rm -rf dist/*",
+    "predocs": "rm -rf docs/assets/*",
     "docs": "npm run build && cp ./dist/mnml* ./docs/assets/.",
     "watch": "nodemon --exec npm run build",
     "watch:docs": "nodemon --exec npm run docs",
