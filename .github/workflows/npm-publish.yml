@@ -2,7 +2,7 @@ name: mnml.css -> npm
 on:
   release:
     types:
-      - created
+      - published
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
