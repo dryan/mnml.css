@@ -174,7 +174,7 @@ h5,
 h6 {
   color: var(--mnml--headers--text-color);
   font-family: var(--mnml--headers--font-family);
-  font-weight: var(--mnml--headers--weight);
+  font-weight: var(--mnml--headers--font-weight);
   margin-block-end: var(--mnml--spacing);
   margin-block-start: 0;
   margin-inline: 0;
