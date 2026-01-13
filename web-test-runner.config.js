@@ -1,0 +1,1 @@
+.pedantry/web-test-runner.config.js

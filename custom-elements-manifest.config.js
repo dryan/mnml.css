@@ -1,0 +1,1 @@
+.pedantry/custom-elements-manifest.config.js

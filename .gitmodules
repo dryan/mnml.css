@@ -1,0 +1,3 @@
+[submodule "/Users/dryan/Code/mnml/css/.pedantry"]
+	path = /Users/dryan/Code/mnml/css/.pedantry
+	url = https://github.com/dryan/pedantry.git

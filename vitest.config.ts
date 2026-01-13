@@ -1,0 +1,1 @@
+.pedantry/vitest.config.ts

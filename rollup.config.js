@@ -1,0 +1,1 @@
+.pedantry/rollup.config.js
